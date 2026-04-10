@@ -13,6 +13,8 @@ Banner animado HTML/CSS para campaña **Intelisis ERP 7000** (estilo papercraft,
 | `assets/Aplicativos_Logotipo/.../Logotipo_Intelisis_blanco.png` | Logo oficial en el panel azul del banner. |
 | `assets/Exo 2/` | Familia tipográfica Exo 2 (`.ttf`). |
 
+La carpeta **`assets/MATERIALES/`** (campañas, vídeos, zips) **no se sube al remoto** por tamaño; queda en tu máquina y está listada en `.gitignore`. El banner y la guía no la necesitan para funcionar.
+
 ## Publicar en GitHub Pages
 
 1. Sube este repo a GitHub (`main`).
