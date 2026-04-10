@@ -9,7 +9,9 @@ Banner animado HTML/CSS para campaña **Intelisis ERP 7000** (estilo papercraft,
 | `index.html` | Banner + controles de demo (pausa, velocidad). |
 | `index.html?embed=1` | Solo el lienzo 300×600 (para iframes). |
 | `presentacion-mkt.html` | Guía / presentación para marketing. |
-| `logo-intelisis.png` | Logo en el panel final del banner. |
+| `brand-assets.css` | Exo 2 local + referencia a rutas de marca. |
+| `assets/Aplicativos_Logotipo/.../Logotipo_Intelisis_blanco.png` | Logo oficial en el panel azul del banner. |
+| `assets/Exo 2/` | Familia tipográfica Exo 2 (`.ttf`). |
 
 ## Publicar en GitHub Pages
 

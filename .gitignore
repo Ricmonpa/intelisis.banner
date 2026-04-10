@@ -2,3 +2,15 @@
 Thumbs.db
 *.log
 .cursor/
+
+# Material de campaña / referencia (pesado: vídeos, zips, JPG masivos) — solo en local
+assets/MATERIALES/
+
+# Metadatos al comprimir carpetas en Mac
+**/__MACOSX/
+
+# PDF de imprenta; en web bastan los PNG del kit
+assets/Aplicativos_Logotipo/**/*.pdf
+
+# Hoja de estilos exportada con rutas file:// (no usable en el proyecto)
+assets/Exo 2/style.css

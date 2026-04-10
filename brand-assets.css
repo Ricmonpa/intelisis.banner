@@ -1,0 +1,53 @@
+/**
+ * Recursos de marca Intelisis (rutas relativas al HTML que enlaza este archivo).
+ * Tipografía: Exo 2 — kit en assets/Exo 2/ (pesos 400–900).
+ * Logos: assets/Aplicativos_Logotipo/Aplicativos_Logotipo/
+ */
+
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('assets/Exo%202/regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('assets/Exo%202/500.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/Exo%202/600.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('assets/Exo%202/700.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url('assets/Exo%202/800.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Exo 2';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('assets/Exo%202/900.ttf') format('truetype');
+}
