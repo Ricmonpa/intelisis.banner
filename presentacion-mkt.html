@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelisis ERP 7000 — Guía demo banner 300×600</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1f2e;
+            --muted: #5c6578;
+            --panel: #f4f6f9;
+            --border: #e2e6ef;
+            --header-bg: #003459;
+            --accent: #009CFF;
+            --accent-soft: #e6f5ff;
+            --stage: #141414;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--ink);
+            background: #fff;
+            line-height: 1.55;
+        }
+
+        .top-bar {
+            background: var(--header-bg);
+            color: #fff;
+            padding: 1.35rem clamp(1.25rem, 4vw, 3rem);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .top-bar h1 {
+            margin: 0 0 0.35rem;
+            font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .top-bar p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.92;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(280px, 38%) 1fr;
+            min-height: calc(100vh - 120px);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 960px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stage-column {
+            background: var(--stage);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+
+        .stage-frame {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow:
+                0 0 0 1px rgba(255,255,255,0.06),
+                0 24px 48px rgba(0,0,0,0.45);
+            line-height: 0;
+        }
+
+        .stage-frame iframe {
+            display: block;
+            width: 300px;
+            height: 600px;
+            border: 0;
+            vertical-align: top;
+        }
+
+        .stage-meta {
+            color: rgba(255,255,255,0.72);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            max-width: 280px;
+        }
+
+        .stage-meta strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .doc-column {
+            padding: clamp(1.75rem, 3vw, 2.75rem) clamp(1.25rem, 3vw, 3rem) 3rem;
+        }
+
+        .doc-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .doc-brand img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .doc-column h2.project {
+            margin: 0 0 0.25rem;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 800;
+            color: var(--header-bg);
+            letter-spacing: -0.03em;
+        }
+
+        .doc-column .lead {
+            margin: 0 0 2rem;
+            font-size: 1.05rem;
+            color: var(--muted);
+            font-weight: 500;
+            max-width: 42rem;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--ink);
+            margin: 0 0 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title.tech {
+            color: var(--accent);
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem 1.25rem;
+            margin-bottom: 0.85rem;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+        }
+
+        .card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .spec-panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.4rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .spec-panel ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .spec-panel li {
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-panel li:last-child {
+            margin-bottom: 0;
+        }
+
+        .dim-box {
+            background: var(--panel);
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .dim-box .size {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--ink);
+            margin-top: 0.35rem;
+        }
+
+        .footnote {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .footnote a {
+            color: var(--accent);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="top-bar">
+        <h1>Intelisis ERP 7000</h1>
+        <p>Banner rich media animado — Demo en vivo para equipo de marketing</p>
+    </header>
+
+    <main class="layout">
+        <aside class="stage-column" aria-label="Vista previa del banner">
+            <div class="stage-frame">
+                <iframe src="index.html?embed=1" title="Banner Intelisis 300×600 animado" loading="lazy"></iframe>
+            </div>
+            <p class="stage-meta">
+                <strong>300 × 600 px</strong><br>
+                Bucle perfecto 8 s · Estilo papercraft · Marca #009CFF
+            </p>
+        </aside>
+
+        <div class="doc-column">
+            <div class="doc-brand">
+                <img src="logo-intelisis.png" alt="Intelisis" width="180" height="48" decoding="async" />
+            </div>
+
+            <h2 class="project">De Excel al control con Intelisis</h2>
+            <p class="lead">
+                Pieza vertical para campaña digital: narrativa de caos operativo (hojas de cálculo, estrés) que cede paso a la solución estructurada (ola azul, ciudad de papel, mensaje ERP 7000). Pensada para exportar a GIF ligero (&lt;150 KB) con loop de 8 segundos.
+            </p>
+
+            <h2 class="section-title">Características del banner</h2>
+
+            <article class="card">
+                <h3>Estado 1 — Caos y dolor</h3>
+                <p>Fondo salvia con textura sutil, titular de tensión, barra roja de alerta y personajes en pánico: oficinista protagonista y “cabernícola godinez” ligeramente detrás. Icono Excel y grillas que caen refuerzan la metáfora del descontrol.</p>
+            </article>
+
+            <article class="card">
+                <h3>Estado 2 — Ola y solución</h3>
+                <p>Transición con ola azul Intelisis que sube con impacto; panel corporativo con copy de valor, CTA “Agenda tu demo”, logo oficial y ciudad papercraft. El fondo del lienzo y del entorno de demo aclaran a blanco en esta fase para sensación de orden.</p>
+            </article>
+
+            <article class="card">
+                <h3>Motion y loop</h3>
+                <p>Keyframes alineados a 8 s con curvas tipo gravedad en caídas y overshoot suave en la ola. Ciclo cerrado: el fotograma final coincide con el inicial para GIF sin saltos.</p>
+            </article>
+
+            <h2 class="section-title tech">Características técnicas</h2>
+            <div class="spec-panel">
+                <ul>
+                    <li>HTML + CSS (animaciones <code style="font-size:0.85em;">@keyframes</code>), sin dependencias obligatorias en el lienzo del anuncio.</li>
+                    <li>SVG integrado para ilustraciones nítidas a cualquier densidad de píxeles.</li>
+                    <li>Código estructurado por capas (caos / solución / ola) para ajustes rápidos de copy o timing.</li>
+                    <li>Versión standalone <a href="index.html" style="color:var(--accent);font-weight:600;">index.html</a> con controles de pausa, reinicio y velocidad (0.5× / 1× / 2×) para revisión creativa.</li>
+                    <li>Modo incrustado <code style="font-size:0.85em;">?embed=1</code> para presentaciones y mockups.</li>
+                </ul>
+            </div>
+
+            <h2 class="section-title">Especificaciones</h2>
+            <div class="dim-box">
+                Formato estándar IAB vertical
+                <span class="size">300 × 600 px</span>
+                Duración de ciclo · 8 s · Loop continuo
+            </div>
+
+            <p class="footnote">
+                Para grabación de GIF: abrir <a href="index.html">index.html</a> en pantalla completa o recortar solo el marco 300×600. Esta guía (<strong>presentacion-mkt.html</strong>) es solo para demostración interna.
+            </p>
+        </div>
+    </main>
+</body>
+</html>

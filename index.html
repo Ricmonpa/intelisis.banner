@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            if (new URLSearchParams(location.search).get('embed') === '1') {
+                document.documentElement.classList.add('embed-demo');
+            }
+        })();
+    </script>
+    <title>Banner Intelisis - 300x600 Animado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --intelisis-blue: #009CFF;
+            --intelisis-blue-deep: #0076c4;
+            --intelisis-blue-wave: #47b4ff;
+        }
+
+        /* Sincronizado con la ola (8s): gris/sage → blanco mientras domina Intelisis */
+        @keyframes demoBackdrop {
+            0%, 100% { background-color: #f0f0f0; }
+            28% { background-color: #f0f0f0; }
+            40% { background-color: #ffffff; }
+            88% { background-color: #ffffff; }
+            96% { background-color: #f0f0f0; }
+        }
+
+        @keyframes bannerStageBg {
+            0%, 100% { background-color: #a4b496; }
+            28% { background-color: #a4b496; }
+            40% { background-color: #ffffff; }
+            88% { background-color: #ffffff; }
+            96% { background-color: #a4b496; }
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            background-color: #f0f0f0;
+            animation: demoBackdrop 8s infinite linear;
+        }
+
+        html.embed-demo {
+            margin: 0;
+            height: 600px;
+            overflow: hidden;
+            background: #161616;
+        }
+
+        html.embed-demo body {
+            animation: none;
+            background: #161616 !important;
+            min-height: 600px;
+            height: 600px;
+            width: 300px;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        html.embed-demo .demo-controls {
+            display: none !important;
+        }
+
+        .banner-container {
+            width: 300px;
+            height: 600px;
+            background-color: #a4b496;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+            animation: bannerStageBg 8s infinite linear;
+        }
+
+        .top-section {
+            padding: 30px 15px;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .title-main {
+            font-size: 26px;
+            font-weight: 800;
+            color: #2d2d2d;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+            animation: shake 8s infinite linear;
+        }
+
+        .subtitle-box {
+            background-color: #e60000;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 5px 10px;
+            display: inline-block;
+            transform: rotate(-2deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            animation: float 8s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+        }
+
+        .excel-icon {
+            width: 90px;
+            height: 110px;
+            background-color: #1d6f42;
+            position: absolute;
+            top: 200px;
+            left: 30px;
+            transform: rotate(-10deg);
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 80% 80%, 90% 100%, 50% 90%, 20% 100%, 30% 75%, 0% 100%);
+            animation: fallBreak 8s infinite both;
+        }
+
+        .excel-icon::after {
+            content: "X";
+            color: white;
+            font-size: 55px;
+            font-weight: 800;
+            position: absolute;
+            top: 15px;
+            left: 20px;
+        }
+
+        .falling-cells {
+            position: absolute;
+            top: 250px;
+            right: 20px;
+            width: 100px;
+            height: 80px;
+            background-color: white;
+            border: 2px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            background-image: linear-gradient(0deg, transparent 24%, #eee 25%, #eee 26%, transparent 27%, transparent 74%, #eee 75%, #eee 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #eee 25%, #eee 26%, transparent 27%, transparent 74%, #eee 75%, #eee 76%, transparent 77%, transparent);
+            background-size: 20px 20px;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);
+            animation: cellDrop 8s infinite both;
+        }
+
+        .panicked-worker-container {
+            position: absolute;
+            top: 218px;
+            left: 48px;
+            width: 210px;
+            height: 160px;
+            z-index: 2;
+            animation: fallBreakWorker 8s infinite both;
+        }
+
+        .panicked-worker-svg {
+            width: 100%;
+            height: 100%;
+            animation: panicTremble 0.14s infinite alternate ease-in-out;
+            transform-origin: bottom center;
+        }
+
+        .solution-wrapper {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 400px;
+            z-index: 5;
+            transform: translateY(450px);
+            animation: slideUp 8s infinite both;
+        }
+
+        .wave-container {
+            position: absolute;
+            top: -60px;
+            width: 100%;
+            height: 100px;
+        }
+
+        .wave-layer-1 {
+            position: absolute;
+            bottom: 0;
+            width: 150%;
+            height: 80px;
+            background-color: var(--intelisis-blue-wave);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            left: -20%;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+            transform: rotate(-3deg);
+        }
+
+        .wave-layer-2 {
+            position: absolute;
+            bottom: -20px;
+            width: 160%;
+            height: 100px;
+            background-color: var(--intelisis-blue);
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            left: -30%;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.25);
+            transform: rotate(2deg);
+        }
+
+        .paper-city {
+            position: absolute;
+            top: -120px;
+            right: 10px;
+            width: 120px;
+            height: 120px;
+            z-index: 2;
+            opacity: 0;
+            animation: popIn 8s infinite both;
+        }
+
+        .bottom-section {
+            position: absolute;
+            top: 40px;
+            width: 100%;
+            height: 360px;
+            background-color: var(--intelisis-blue);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise2)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        .solution-text {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            padding: 0 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            opacity: 0;
+            animation: fadeInText 8s infinite both;
+        }
+
+        .highlight-ia {
+            background-color: #f39200;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+            transform: rotate(2deg);
+            animation: pulseIA 8s infinite both;
+        }
+
+        .cta-button {
+            background-color: #f39200;
+            color: white;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 10px 25px;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: 2px solid #e08600;
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: popInCTA 8s infinite both;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeInLogo 8s infinite both;
+            padding: 0 12px;
+            max-width: 100%;
+        }
+
+        .intelisis-logo-img {
+            display: block;
+            height: 40px;
+            width: auto;
+            max-width: min(240px, 100%);
+            object-fit: contain;
+            object-position: center;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.15));
+        }
+
+        .logo-sub {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            margin-top: 0;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- Controles (fuera del banner) --- */
+        .demo-controls {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .demo-controls button {
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #d0d5dd;
+            background: #f8fafc;
+            cursor: pointer;
+            color: #1e293b;
+        }
+
+        .demo-controls button:hover {
+            background: #e2e8f0;
+        }
+
+        .demo-controls button.is-active {
+            background: var(--intelisis-blue);
+            color: #fff;
+            border-color: var(--intelisis-blue-deep);
+        }
+
+        .demo-controls .label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            margin-right: 4px;
+        }
+
+        /* --- KEYFRAMES: bucle 8s, 0% === 100% --- */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+            50% { transform: translateY(-6px) rotate(0deg); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56); }
+            2.5% { transform: translateX(-3px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            5% { transform: translateX(3px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            7.5% { transform: translateX(-2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            10% { transform: translateX(2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            12.5%, 87.5% { transform: translateX(0); animation-timing-function: steps(1); }
+            90% { transform: translateX(-2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            92.5% { transform: translateX(2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            95% { transform: translateX(-1px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
+            97.5% { transform: translateX(1px); }
+        }
+
+        @keyframes fallBreak {
+            0%, 100% {
+                transform: translateY(-48px) rotate(-10deg);
+                opacity: 0;
+                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            6% {
+                transform: translateY(0) rotate(-10deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            }
+            14% {
+                transform: translateY(10px) rotate(-12deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            }
+            22% {
+                transform: translateY(14px) rotate(-13deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            }
+            34% {
+                transform: translateY(210px) rotate(-26deg);
+                opacity: 0;
+                animation-timing-function: steps(1);
+            }
+            34.01%, 99.99% {
+                transform: translateY(210px) rotate(-26deg);
+                opacity: 0;
+                animation-timing-function: steps(1);
+            }
+        }
+
+        @keyframes fallBreakWorker {
+            0%, 100% {
+                transform: translateY(-48px) rotate(-10deg);
+                opacity: 0;
+                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            7.5% {
+                transform: translateY(0) rotate(-10deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            }
+            15.5% {
+                transform: translateY(10px) rotate(-12deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            }
+            23.5% {
+                transform: translateY(14px) rotate(-13deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            }
+            35.5% {
+                transform: translateY(210px) rotate(-26deg);
+                opacity: 0;
+                animation-timing-function: steps(1);
+            }
+            35.51%, 99.99% {
+                transform: translateY(210px) rotate(-26deg);
+                opacity: 0;
+                animation-timing-function: steps(1);
+            }
+        }
+
+        @keyframes cellDrop {
+            0%, 100% {
+                transform: translateY(-36px) rotate(14deg);
+                opacity: 0;
+                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            8% {
+                transform: translateY(0) rotate(15deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+            }
+            18% {
+                transform: translateY(12px) rotate(18deg);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+            }
+            36% {
+                transform: translateY(260px) rotate(48deg);
+                opacity: 0;
+                animation-timing-function: steps(1);
+            }
+            36.01%, 99.99% {
+                transform: translateY(260px) rotate(48deg);
+                opacity: 0;
+                animation-timing-function: steps(1);
+            }
+        }
+
+        @keyframes panicTremble {
+            0% { transform: rotate(-2.5deg) scale(0.98); }
+            100% { transform: rotate(2.5deg) scale(1.02); }
+        }
+
+        @keyframes slideUp {
+            0%, 100% {
+                transform: translateY(450px);
+                animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+            }
+            28% {
+                transform: translateY(450px);
+                animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            40% {
+                transform: translateY(-14px);
+                animation-timing-function: cubic-bezier(0.34, 1.25, 0.64, 1);
+            }
+            48% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+            }
+            88% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+            }
+            99.5% {
+                transform: translateY(450px);
+                animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+            }
+        }
+
+        @keyframes fadeInText {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(12px);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            46% {
+                opacity: 0;
+                transform: translateY(12px);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            52% {
+                opacity: 1;
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            88% {
+                opacity: 1;
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            99% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+        }
+
+        @keyframes popInCTA {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.82);
+                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            54% {
+                opacity: 0;
+                transform: scale(0.82);
+                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            60% {
+                opacity: 1;
+                transform: scale(1.04);
+                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            64% {
+                opacity: 1;
+                transform: scale(1);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            88% {
+                opacity: 1;
+                transform: scale(1);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            99% {
+                opacity: 0;
+                transform: scale(0.92);
+            }
+        }
+
+        @keyframes fadeInLogo {
+            0%, 100% { opacity: 0; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+            64% { opacity: 0; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+            72% { opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+            88% { opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+            99% { opacity: 0; }
+        }
+
+        @keyframes popIn {
+            0%, 100% {
+                opacity: 0;
+                transform: translateY(22px) scale(0.96);
+                animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+            }
+            44% {
+                opacity: 0;
+                transform: translateY(22px) scale(0.96);
+                animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
+            }
+            52% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            88% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            99% {
+                opacity: 0;
+                transform: translateY(14px) scale(0.98);
+            }
+        }
+
+        @keyframes pulseIA {
+            0%, 100% {
+                transform: scale(1) rotate(2deg);
+                background-color: #f39200;
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            52% {
+                transform: scale(1) rotate(2deg);
+                background-color: #f39200;
+                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            58% {
+                transform: scale(1.08) rotate(0deg);
+                background-color: #ffaa00;
+                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+            }
+            66% {
+                transform: scale(1) rotate(2deg);
+                background-color: #f39200;
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            88% {
+                transform: scale(1) rotate(2deg);
+                background-color: #f39200;
+            }
+            99% {
+                transform: scale(1) rotate(2deg);
+                background-color: #f39200;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner-container" id="intelisis-banner">
+        <div class="top-section">
+            <h1 class="title-main">¿Tu empresa<br>sigue en Excel?</h1>
+            <div class="subtitle-box">
+                Estás perdiendo control y dinero.
+            </div>
+
+            <div class="panicked-worker-container">
+                <svg class="panicked-worker-svg" viewBox="0 0 178 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="paper-shadow-worker" x="-20%" y="-20%" width="140%" height="140%">
+                            <feDropShadow dx="3" dy="3" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.3"/>
+                        </filter>
+                    </defs>
+
+                    <!-- Cabernícola godinez: atrás / lateral izquierdo -->
+                    <g filter="url(#paper-shadow-worker)" opacity="0.92"
+                       transform="translate(2, 4) translate(50, 118) scale(0.78) translate(-50, -118)">
+                        <path d="M 24 118 L 28 108 L 32 114 L 36 106 L 40 115 L 44 108 L 48 116 L 52 109 L 56 117 L 60 110 L 64 118 Z" fill="#b8c4a0"/>
+                        <path d="M 26 118 L 30 80 L 38 72 L 50 69 L 62 72 L 70 80 L 74 118 Z" fill="#e8b896"/>
+                        <path d="M 38 92 L 50 118 L 62 92 L 50 86 Z" fill="#e6bc3c" stroke="#c9a227" stroke-width="0.5"/>
+                        <ellipse cx="44" cy="98" rx="2.2" ry="1.8" fill="#5c4033" transform="rotate(-15 44 98)"/>
+                        <ellipse cx="54" cy="104" rx="2" ry="1.6" fill="#5c4033" transform="rotate(12 54 104)"/>
+                        <ellipse cx="48" cy="108" rx="1.8" ry="1.4" fill="#5c4033"/>
+                        <ellipse cx="42" cy="106" rx="1.5" ry="1.2" fill="#5c4033"/>
+                        <path d="M 40 70 L 50 76 L 60 70 L 58 66 L 42 66 Z" fill="#ffffff" stroke="#ddd" stroke-width="0.4"/>
+                        <path d="M 47 74 L 53 74 L 55 98 L 50 104 L 45 98 Z" fill="#d94838"/>
+                        <path d="M 48.5 74 L 51.5 74 L 50 79 Z" fill="#9c2a22"/>
+                        <ellipse cx="50" cy="46" rx="16" ry="15" fill="#e8b896"/>
+                        <ellipse cx="33" cy="48" rx="3" ry="4" fill="#d9a882"/>
+                        <ellipse cx="67" cy="48" rx="3" ry="4" fill="#d9a882"/>
+                        <path d="M 28 42 L 26 28 L 32 22 L 38 26 L 42 18 L 50 20 L 58 17 L 64 24 L 70 20 L 74 32 L 72 44 L 68 38 L 62 40 L 56 36 L 50 38 L 44 35 L 38 40 L 32 36 Z" fill="#3d2314"/>
+                        <path d="M 30 38 L 34 24 L 50 26 L 66 24 L 70 38 L 65 34 L 50 32 L 35 34 Z" fill="#4a2d18"/>
+                        <path d="M 36 38 L 44 40 L 42 42 Z" fill="#3d2314"/>
+                        <path d="M 64 38 L 56 40 L 58 42 Z" fill="#3d2314"/>
+                        <ellipse cx="41" cy="44" rx="5" ry="4.5" fill="#ffffff"/>
+                        <ellipse cx="59" cy="44" rx="5" ry="4.5" fill="#ffffff"/>
+                        <circle cx="41" cy="44" r="2" fill="#1a1a1a"/>
+                        <circle cx="59" cy="44" r="2" fill="#1a1a1a"/>
+                        <circle cx="42" cy="43" r="0.7" fill="#ffffff" opacity="0.9"/>
+                        <path d="M 34 50 Q 28 66 35 80 Q 40 86 46 84 L 47 60 Q 42 54 34 50 Z" fill="#3d2314"/>
+                        <path d="M 66 50 Q 72 66 65 80 Q 60 86 54 84 L 53 60 Q 58 54 66 50 Z" fill="#3d2314"/>
+                        <path d="M 36 52 Q 42 58 46 56 L 45 60 Q 40 62 36 58 Z" fill="#4a2d18"/>
+                        <path d="M 64 52 Q 58 58 54 56 L 55 60 Q 60 62 64 58 Z" fill="#4a2d18"/>
+                        <path d="M 44 54 Q 50 51 56 54 Q 50 59 44 54" fill="#5a2a2a"/>
+                        <path d="M 45.2 53.2 L 47 54.8 L 48.8 53.2 L 50.6 54.8 L 52.4 53.2 L 54.2 54.8" stroke="#f5f0e8" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+                        <path d="M 72 78 L 88 52 L 84 48 L 68 72 Z" fill="#d9a882"/>
+                        <circle cx="87" cy="50" r="5.2" fill="#d9a882"/>
+                        <g transform="rotate(-10 86 32)">
+                            <path d="M 80 36 L 86 18 L 90 20 L 84 38 Z" fill="#8b6914" stroke="#6d4c1b" stroke-width="0.45"/>
+                            <path d="M 82 35 L 86 22 L 88 23 L 84 35 Z" fill="#a67c52"/>
+                            <ellipse cx="89" cy="17" rx="3" ry="2" fill="#5cb85c" transform="rotate(-20 89 17)"/>
+                            <ellipse cx="85" cy="19" rx="2.4" ry="1.4" fill="#7ccf6e" transform="rotate(18 85 19)"/>
+                            <rect x="82" y="26" width="10" height="12" rx="1" fill="#d4c4b0" stroke="#9a8b78" stroke-width="0.4"/>
+                            <path d="M 84 29 L 90 35 M 90 29 L 84 35" stroke="#1d6f42" stroke-width="1.35" stroke-linecap="round"/>
+                        </g>
+                        <path d="M 34 78 L 12 46 L 18 40 L 38 68 Z" fill="#e8b896"/>
+                        <circle cx="14" cy="43" r="6" fill="#e8b896"/>
+                        <path d="M 68 30 Q 72 37 68 40 Q 64 37 68 30 Z" fill="#87ceeb" opacity="0.95"/>
+                    </g>
+
+                    <!-- Oficinista original: protagonista, delante / derecha -->
+                    <g filter="url(#paper-shadow-worker)" transform="translate(52, 0)">
+                        <rect x="5" y="15" width="20" height="25" fill="#ffffff" transform="rotate(-20 15 25)"/>
+                        <line x1="8" y1="20" x2="22" y2="20" stroke="#1d6f42" stroke-width="1.5" transform="rotate(-20 15 25)"/>
+                        <line x1="8" y1="25" x2="18" y2="25" stroke="#ccc" stroke-width="1" transform="rotate(-20 15 25)"/>
+
+                        <rect x="75" y="25" width="22" height="28" fill="#ffffff" transform="rotate(25 85 35)"/>
+                        <line x1="77" y1="30" x2="95" y2="30" stroke="#1d6f42" stroke-width="1.5" transform="rotate(25 85 35)"/>
+                        <line x1="77" y1="35" x2="90" y2="35" stroke="#ccc" stroke-width="1" transform="rotate(25 85 35)"/>
+
+                        <path d="M 25 120 L 35 75 L 65 75 L 75 120 Z" fill="#b0c4de" />
+                        <path d="M 46 75 L 54 75 L 40 105 L 35 100 Z" fill="#d94838" />
+                        <path d="M 45 75 L 55 75 L 50 82 Z" fill="#b33629" />
+
+                        <circle cx="50" cy="45" r="18" fill="#f4c2c2" />
+                        <path d="M 30 45 C 28 20 72 20 70 45 C 75 35 60 22 50 22 C 40 22 25 35 30 45 Z" fill="#2d2d2d" />
+
+                        <circle cx="42" cy="42" r="4.5" fill="white" />
+                        <circle cx="42" cy="42" r="1.5" fill="black" />
+                        <circle cx="58" cy="42" r="4.5" fill="white" />
+                        <circle cx="58" cy="42" r="1.5" fill="black" />
+
+                        <line x1="38" y1="36" x2="46" y2="38" stroke="#2d2d2d" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="62" y1="36" x2="54" y2="38" stroke="#2d2d2d" stroke-width="2" stroke-linecap="round"/>
+
+                        <ellipse cx="50" cy="54" rx="5" ry="7" fill="#800000" />
+                        <path d="M 45.5 52 Q 50 49 54.5 52 Z" fill="white" />
+
+                        <path d="M 37 80 L 15 55 L 20 48 L 40 70 Z" fill="#b0c4de" />
+                        <path d="M 63 80 L 85 55 L 80 48 L 60 70 Z" fill="#b0c4de" />
+
+                        <circle cx="18" cy="50" r="6" fill="#f4c2c2" />
+                        <circle cx="82" cy="50" r="6" fill="#f4c2c2" />
+
+                        <path d="M 66 32 Q 70 39 66 42 Q 62 39 66 32 Z" fill="#87ceeb" opacity="0.9" />
+                    </g>
+                </svg>
+            </div>
+
+            <div class="excel-icon"></div>
+            <div class="falling-cells"></div>
+        </div>
+
+        <div class="solution-wrapper">
+            <svg class="paper-city" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="40" width="30" height="60" fill="rgba(0,0,0,0.2)" transform="translate(3,3)"/>
+                <rect x="45" y="20" width="35" height="80" fill="rgba(0,0,0,0.2)" transform="translate(3,3)"/>
+                <rect x="10" y="40" width="30" height="60" fill="#5b86ab"/>
+                <rect x="45" y="20" width="35" height="80" fill="#3a6080"/>
+                <rect x="15" y="45" width="5" height="5" fill="#a4b496"/>
+                <rect x="25" y="45" width="5" height="5" fill="#a4b496"/>
+                <rect x="15" y="55" width="5" height="5" fill="#a4b496"/>
+                <rect x="25" y="55" width="5" height="5" fill="#a4b496"/>
+                <rect x="52" y="28" width="6" height="6" fill="#a4b496"/>
+                <rect x="65" y="28" width="6" height="6" fill="#a4b496"/>
+                <rect x="52" y="40" width="6" height="6" fill="#a4b496"/>
+                <rect x="65" y="40" width="6" height="6" fill="#a4b496"/>
+                <polyline points="45,20 45,5 85,5" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <line x1="80" y1="5" x2="80" y2="15" stroke="#2c3e50" stroke-width="1.5"/>
+            </svg>
+
+            <div class="wave-container">
+                <div class="wave-layer-1"></div>
+                <div class="wave-layer-2"></div>
+            </div>
+
+            <div class="bottom-section">
+                <div class="solution-text">
+                    Intelisis: el ERP para la<br>tecnolog<span class="highlight-ia">IA</span> de negocio.
+                </div>
+
+                <div class="cta-button">
+                    [ Agenda tu demo ]
+                </div>
+
+                <div class="logo-container">
+                    <img class="intelisis-logo-img" src="logo-intelisis.png" width="220" height="48" alt="Intelisis" decoding="async" />
+                    <span class="logo-sub">ERP 7000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="demo-controls" aria-label="Controles de demo del banner">
+        <button type="button" id="btn-toggle" title="Pausar o reanudar">Pausa</button>
+        <button type="button" id="btn-restart" title="Reiniciar desde el inicio">Reiniciar</button>
+        <span class="label">Velocidad</span>
+        <button type="button" class="speed-btn" data-rate="0.5">0.5×</button>
+        <button type="button" class="speed-btn is-active" data-rate="1">1×</button>
+        <button type="button" class="speed-btn" data-rate="2">2×</button>
+    </div>
+
+    <script>
+        (function () {
+            const banner = document.getElementById('intelisis-banner');
+            const btnToggle = document.getElementById('btn-toggle');
+            const btnRestart = document.getElementById('btn-restart');
+            const speedBtns = document.querySelectorAll('.speed-btn');
+            const isEmbed = document.documentElement.classList.contains('embed-demo');
+
+            function getAnimations() {
+                const out = [];
+                if (banner && banner.getAnimations) {
+                    out.push.apply(out, banner.getAnimations({ subtree: true }));
+                }
+                if (!isEmbed && document.body.getAnimations) {
+                    out.push.apply(out, document.body.getAnimations());
+                }
+                return out;
+            }
+
+            let currentRate = 1;
+
+            function applyPlaybackRate(rate) {
+                currentRate = rate;
+                getAnimations().forEach(function (a) {
+                    a.playbackRate = rate;
+                });
+            }
+
+            function syncToggleLabel() {
+                const anims = getAnimations();
+                const running = anims.some(function (a) { return a.playState === 'running'; });
+                btnToggle.textContent = running ? 'Pausa' : 'Reproducir';
+            }
+
+            btnToggle.addEventListener('click', function () {
+                const anims = getAnimations();
+                if (!anims.length) return;
+                const anyRunning = anims.some(function (a) { return a.playState === 'running'; });
+                anims.forEach(function (a) {
+                    if (anyRunning) a.pause();
+                    else {
+                        a.playbackRate = currentRate;
+                        a.play();
+                    }
+                });
+                syncToggleLabel();
+            });
+
+            btnRestart.addEventListener('click', function () {
+                const anims = getAnimations();
+                const wasPaused = anims.some(function (a) { return a.playState === 'paused'; });
+                anims.forEach(function (a) {
+                    a.currentTime = 0;
+                    a.playbackRate = currentRate;
+                    a.play();
+                    if (wasPaused) a.pause();
+                });
+                syncToggleLabel();
+            });
+
+            speedBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const rate = Number(btn.getAttribute('data-rate')) || 1;
+                    speedBtns.forEach(function (b) { b.classList.remove('is-active'); });
+                    btn.classList.add('is-active');
+                    applyPlaybackRate(rate);
+                    getAnimations().forEach(function (a) {
+                        if (a.playState === 'paused') a.pause();
+                    });
+                });
+            });
+
+            requestAnimationFrame(function () {
+                applyPlaybackRate(1);
+                syncToggleLabel();
+            });
+        })();
+    </script>
+</body>
+</html>
