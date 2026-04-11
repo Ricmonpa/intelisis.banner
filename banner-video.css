@@ -86,21 +86,17 @@
     padding: 11px 22px 12px;
     font-size: 12px;
     animation: videoV2CTAEnter 2.2s forwards both;
-    /* Cálido + volumen (relieve, bisel, sombra de “botón físico”) */
-    background: linear-gradient(180deg, #ffc49a 0%, #e87052 42%, #c73e2d 100%);
+    /* Plano: azul Intelisis, sin “pastilla” inferior ni inset (evita línea clara abajo) */
+    background: linear-gradient(180deg, #2eb6ff 0%, #009cff 50%, #0088e8 100%);
     color: #fff;
-    border: 1px solid rgba(120, 40, 28, 0.55);
-    border-radius: 11px;
-    box-shadow:
-        inset 0 2px 0 rgba(255, 255, 255, 0.42),
-        inset 0 -3px 0 rgba(0, 0, 0, 0.15),
-        0 5px 0 #7a2f22,
-        0 12px 28px rgba(40, 8, 4, 0.42);
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid #0076c4;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 100, 190, 0.4);
+    text-shadow: 0 1px 1px rgba(0, 40, 90, 0.35);
 }
 
 .banner-container--video .cta-button:hover {
-    filter: brightness(1.07) saturate(1.05);
+    filter: brightness(1.08);
 }
 
 .banner-container--video .logo-container {
