@@ -153,14 +153,17 @@
         transform: translateY(0);
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    88% {
+    88%,
+    99.49% {
         opacity: 1;
         transform: translateY(0);
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    99% {
+    /* Sin desvanecimiento a mitad de ciclo: solo reset instantáneo al cerrar el loop con el panel */
+    99.5%,
+    100% {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(12px);
     }
 }
 
@@ -186,14 +189,16 @@
         transform: scale(1);
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    88% {
+    88%,
+    99.49% {
         opacity: 1;
         transform: scale(1);
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    99% {
+    99.5%,
+    100% {
         opacity: 0;
-        transform: scale(0.92);
+        transform: scale(0.82);
     }
 }
 
@@ -211,11 +216,13 @@
         opacity: 1;
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    88% {
+    88%,
+    99.49% {
         opacity: 1;
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    99% {
+    99.5%,
+    100% {
         opacity: 0;
     }
 }
@@ -242,11 +249,13 @@
         background-color: var(--intelisis-orange-cta, #f39200);
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
-    88% {
+    88%,
+    99.49% {
         transform: scale(1) rotate(1deg);
         background-color: var(--intelisis-orange-cta, #f39200);
     }
-    99% {
+    99.5%,
+    100% {
         transform: scale(1) rotate(1deg);
         background-color: var(--intelisis-orange-cta, #f39200);
     }
