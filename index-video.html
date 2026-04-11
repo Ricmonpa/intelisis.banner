@@ -112,7 +112,7 @@
             margin-bottom: 14px;
             letter-spacing: -0.03em;
             text-shadow: none;
-            animation: shake 8s infinite linear;
+            animation: titleRevealElegant 8s infinite linear;
         }
 
         /* Alerta sin rojo: línea editorial (azul marca + superficie clara) */
@@ -128,7 +128,7 @@
             font-weight: 600;
             padding: 10px 16px 10px 14px;
             display: inline-block;
-            transform: rotate(-1deg);
+            transform: none;
             border-radius: 8px;
             letter-spacing: 0.02em;
             line-height: 1.35;
@@ -136,66 +136,6 @@
             border-left: 4px solid var(--intelisis-blue);
             box-shadow: 0 4px 18px rgba(0, 80, 140, 0.1);
             animation: float 8s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-        }
-
-        .excel-icon {
-            width: 90px;
-            height: 110px;
-            background-color: #1d6f42;
-            position: absolute;
-            top: 200px;
-            left: 30px;
-            z-index: 2;
-            transform: rotate(-10deg);
-            box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
-            clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 80% 80%, 90% 100%, 50% 90%, 20% 100%, 30% 75%, 0% 100%);
-            animation: fallBreak 8s infinite both;
-            pointer-events: none;
-        }
-
-        .excel-icon::after {
-            content: "X";
-            color: white;
-            font-size: 55px;
-            font-weight: 800;
-            position: absolute;
-            top: 15px;
-            left: 20px;
-        }
-
-        .falling-cells {
-            position: absolute;
-            top: 250px;
-            right: 20px;
-            z-index: 2;
-            width: 100px;
-            height: 80px;
-            background-color: white;
-            border: 2px solid #ccc;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-            background-image: linear-gradient(0deg, transparent 24%, #eee 25%, #eee 26%, transparent 27%, transparent 74%, #eee 75%, #eee 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, #eee 25%, #eee 26%, transparent 27%, transparent 74%, #eee 75%, #eee 76%, transparent 77%, transparent);
-            background-size: 20px 20px;
-            clip-path: polygon(10% 0, 100% 0, 100% 80%, 80% 100%, 0 100%, 0 20%);
-            animation: cellDrop 8s infinite both;
-            pointer-events: none;
-        }
-
-        .panicked-worker-container {
-            position: absolute;
-            top: 218px;
-            left: 48px;
-            width: 210px;
-            height: 160px;
-            z-index: 2;
-            animation: fallBreakWorker 8s infinite both;
-            pointer-events: none;
-        }
-
-        .panicked-worker-svg {
-            width: 100%;
-            height: 100%;
-            animation: panicTremble 0.14s infinite alternate ease-in-out;
-            transform-origin: bottom center;
         }
 
         .solution-wrapper {
@@ -237,19 +177,6 @@
             left: -30%;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.25);
             transform: rotate(2deg);
-        }
-
-        /* Ciudad solo sobre el panel azul (no invade titular / subtítulo) */
-        .paper-city {
-            position: absolute;
-            top: -38px;
-            right: 4px;
-            width: 82px;
-            height: 82px;
-            z-index: 1;
-            opacity: 0;
-            animation: popIn 8s infinite both;
-            pointer-events: none;
         }
 
         .bottom-section {
@@ -401,120 +328,30 @@
 
         /* --- KEYFRAMES: bucle 8s, 0% === 100% --- */
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(-2deg); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
-            50% { transform: translateY(-6px) rotate(0deg); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+            0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
+            50% { transform: translateY(-4px); animation-timing-function: cubic-bezier(0.45, 0.05, 0.55, 0.95); }
         }
 
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56); }
-            2.5% { transform: translateX(-3px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            5% { transform: translateX(3px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            7.5% { transform: translateX(-2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            10% { transform: translateX(2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            12.5%, 87.5% { transform: translateX(0); animation-timing-function: steps(1); }
-            90% { transform: translateX(-2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            92.5% { transform: translateX(2px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            95% { transform: translateX(-1px); animation-timing-function: cubic-bezier(0.34, 1.2, 0.64, 1); }
-            97.5% { transform: translateX(1px); }
-        }
-
-        @keyframes fallBreak {
+        @keyframes titleRevealElegant {
             0%, 100% {
-                transform: translateY(-48px) rotate(-10deg);
-                opacity: 0;
-                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-            6% {
-                transform: translateY(0) rotate(-10deg);
                 opacity: 1;
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            4% {
+                opacity: 0.92;
+                transform: translateY(4px);
                 animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
             }
             14% {
-                transform: translateY(10px) rotate(-12deg);
                 opacity: 1;
+                transform: translateY(0);
                 animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
             }
-            22% {
-                transform: translateY(14px) rotate(-13deg);
+            87.5%, 99.99% {
                 opacity: 1;
-                animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+                transform: translateY(0);
             }
-            34% {
-                transform: translateY(210px) rotate(-26deg);
-                opacity: 0;
-                animation-timing-function: steps(1);
-            }
-            34.01%, 99.99% {
-                transform: translateY(210px) rotate(-26deg);
-                opacity: 0;
-                animation-timing-function: steps(1);
-            }
-        }
-
-        @keyframes fallBreakWorker {
-            0%, 100% {
-                transform: translateY(-48px) rotate(-10deg);
-                opacity: 0;
-                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-            7.5% {
-                transform: translateY(0) rotate(-10deg);
-                opacity: 1;
-                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-            }
-            15.5% {
-                transform: translateY(10px) rotate(-12deg);
-                opacity: 1;
-                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-            }
-            23.5% {
-                transform: translateY(14px) rotate(-13deg);
-                opacity: 1;
-                animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-            }
-            35.5% {
-                transform: translateY(210px) rotate(-26deg);
-                opacity: 0;
-                animation-timing-function: steps(1);
-            }
-            35.51%, 99.99% {
-                transform: translateY(210px) rotate(-26deg);
-                opacity: 0;
-                animation-timing-function: steps(1);
-            }
-        }
-
-        @keyframes cellDrop {
-            0%, 100% {
-                transform: translateY(-36px) rotate(14deg);
-                opacity: 0;
-                animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            }
-            8% {
-                transform: translateY(0) rotate(15deg);
-                opacity: 1;
-                animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-            }
-            18% {
-                transform: translateY(12px) rotate(18deg);
-                opacity: 1;
-                animation-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
-            }
-            36% {
-                transform: translateY(260px) rotate(48deg);
-                opacity: 0;
-                animation-timing-function: steps(1);
-            }
-            36.01%, 99.99% {
-                transform: translateY(260px) rotate(48deg);
-                opacity: 0;
-                animation-timing-function: steps(1);
-            }
-        }
-
-        @keyframes panicTremble {
-            0% { transform: rotate(-2.5deg) scale(0.98); }
-            100% { transform: rotate(2.5deg) scale(1.02); }
         }
 
         @keyframes slideUp {
@@ -611,33 +448,6 @@
             99% { opacity: 0; }
         }
 
-        @keyframes popIn {
-            0%, 100% {
-                opacity: 0;
-                transform: translateY(22px) scale(0.96);
-                animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
-            }
-            44% {
-                opacity: 0;
-                transform: translateY(22px) scale(0.96);
-                animation-timing-function: cubic-bezier(0.34, 1.4, 0.64, 1);
-            }
-            52% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            88% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            99% {
-                opacity: 0;
-                transform: translateY(14px) scale(0.98);
-            }
-        }
-
         @keyframes pulseIA {
             0%, 100% {
                 transform: scale(1) rotate(1deg);
@@ -682,102 +492,6 @@
             <div class="subtitle-box">
                 Estás perdiendo control y dinero.
             </div>
-
-            <div class="panicked-worker-container">
-                <svg class="panicked-worker-svg" viewBox="0 0 178 120" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <filter id="paper-shadow-worker" x="-20%" y="-20%" width="140%" height="140%">
-                            <feDropShadow dx="3" dy="3" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.3"/>
-                        </filter>
-                    </defs>
-
-                    <!-- Cabernícola godinez: atrás / lateral izquierdo -->
-                    <g filter="url(#paper-shadow-worker)" opacity="0.92"
-                       transform="translate(2, 4) translate(50, 118) scale(0.78) translate(-50, -118)">
-                        <path d="M 24 118 L 28 108 L 32 114 L 36 106 L 40 115 L 44 108 L 48 116 L 52 109 L 56 117 L 60 110 L 64 118 Z" fill="#b8c4a0"/>
-                        <path d="M 26 118 L 30 80 L 38 72 L 50 69 L 62 72 L 70 80 L 74 118 Z" fill="#e8b896"/>
-                        <path d="M 38 92 L 50 118 L 62 92 L 50 86 Z" fill="#e6bc3c" stroke="#c9a227" stroke-width="0.5"/>
-                        <ellipse cx="44" cy="98" rx="2.2" ry="1.8" fill="#5c4033" transform="rotate(-15 44 98)"/>
-                        <ellipse cx="54" cy="104" rx="2" ry="1.6" fill="#5c4033" transform="rotate(12 54 104)"/>
-                        <ellipse cx="48" cy="108" rx="1.8" ry="1.4" fill="#5c4033"/>
-                        <ellipse cx="42" cy="106" rx="1.5" ry="1.2" fill="#5c4033"/>
-                        <path d="M 40 70 L 50 76 L 60 70 L 58 66 L 42 66 Z" fill="#ffffff" stroke="#ddd" stroke-width="0.4"/>
-                        <path d="M 47 74 L 53 74 L 55 98 L 50 104 L 45 98 Z" fill="#d94838"/>
-                        <path d="M 48.5 74 L 51.5 74 L 50 79 Z" fill="#9c2a22"/>
-                        <ellipse cx="50" cy="46" rx="16" ry="15" fill="#e8b896"/>
-                        <ellipse cx="33" cy="48" rx="3" ry="4" fill="#d9a882"/>
-                        <ellipse cx="67" cy="48" rx="3" ry="4" fill="#d9a882"/>
-                        <path d="M 28 42 L 26 28 L 32 22 L 38 26 L 42 18 L 50 20 L 58 17 L 64 24 L 70 20 L 74 32 L 72 44 L 68 38 L 62 40 L 56 36 L 50 38 L 44 35 L 38 40 L 32 36 Z" fill="#3d2314"/>
-                        <path d="M 30 38 L 34 24 L 50 26 L 66 24 L 70 38 L 65 34 L 50 32 L 35 34 Z" fill="#4a2d18"/>
-                        <path d="M 36 38 L 44 40 L 42 42 Z" fill="#3d2314"/>
-                        <path d="M 64 38 L 56 40 L 58 42 Z" fill="#3d2314"/>
-                        <ellipse cx="41" cy="44" rx="5" ry="4.5" fill="#ffffff"/>
-                        <ellipse cx="59" cy="44" rx="5" ry="4.5" fill="#ffffff"/>
-                        <circle cx="41" cy="44" r="2" fill="#1a1a1a"/>
-                        <circle cx="59" cy="44" r="2" fill="#1a1a1a"/>
-                        <circle cx="42" cy="43" r="0.7" fill="#ffffff" opacity="0.9"/>
-                        <path d="M 34 50 Q 28 66 35 80 Q 40 86 46 84 L 47 60 Q 42 54 34 50 Z" fill="#3d2314"/>
-                        <path d="M 66 50 Q 72 66 65 80 Q 60 86 54 84 L 53 60 Q 58 54 66 50 Z" fill="#3d2314"/>
-                        <path d="M 36 52 Q 42 58 46 56 L 45 60 Q 40 62 36 58 Z" fill="#4a2d18"/>
-                        <path d="M 64 52 Q 58 58 54 56 L 55 60 Q 60 62 64 58 Z" fill="#4a2d18"/>
-                        <path d="M 44 54 Q 50 51 56 54 Q 50 59 44 54" fill="#5a2a2a"/>
-                        <path d="M 45.2 53.2 L 47 54.8 L 48.8 53.2 L 50.6 54.8 L 52.4 53.2 L 54.2 54.8" stroke="#f5f0e8" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-                        <path d="M 72 78 L 88 52 L 84 48 L 68 72 Z" fill="#d9a882"/>
-                        <circle cx="87" cy="50" r="5.2" fill="#d9a882"/>
-                        <g transform="rotate(-10 86 32)">
-                            <path d="M 80 36 L 86 18 L 90 20 L 84 38 Z" fill="#8b6914" stroke="#6d4c1b" stroke-width="0.45"/>
-                            <path d="M 82 35 L 86 22 L 88 23 L 84 35 Z" fill="#a67c52"/>
-                            <ellipse cx="89" cy="17" rx="3" ry="2" fill="#5cb85c" transform="rotate(-20 89 17)"/>
-                            <ellipse cx="85" cy="19" rx="2.4" ry="1.4" fill="#7ccf6e" transform="rotate(18 85 19)"/>
-                            <rect x="82" y="26" width="10" height="12" rx="1" fill="#d4c4b0" stroke="#9a8b78" stroke-width="0.4"/>
-                            <path d="M 84 29 L 90 35 M 90 29 L 84 35" stroke="#1d6f42" stroke-width="1.35" stroke-linecap="round"/>
-                        </g>
-                        <path d="M 34 78 L 12 46 L 18 40 L 38 68 Z" fill="#e8b896"/>
-                        <circle cx="14" cy="43" r="6" fill="#e8b896"/>
-                        <path d="M 68 30 Q 72 37 68 40 Q 64 37 68 30 Z" fill="#87ceeb" opacity="0.95"/>
-                    </g>
-
-                    <!-- Oficinista original: protagonista, delante / derecha -->
-                    <g filter="url(#paper-shadow-worker)" transform="translate(52, 0)">
-                        <rect x="5" y="15" width="20" height="25" fill="#ffffff" transform="rotate(-20 15 25)"/>
-                        <line x1="8" y1="20" x2="22" y2="20" stroke="#1d6f42" stroke-width="1.5" transform="rotate(-20 15 25)"/>
-                        <line x1="8" y1="25" x2="18" y2="25" stroke="#ccc" stroke-width="1" transform="rotate(-20 15 25)"/>
-
-                        <rect x="75" y="25" width="22" height="28" fill="#ffffff" transform="rotate(25 85 35)"/>
-                        <line x1="77" y1="30" x2="95" y2="30" stroke="#1d6f42" stroke-width="1.5" transform="rotate(25 85 35)"/>
-                        <line x1="77" y1="35" x2="90" y2="35" stroke="#ccc" stroke-width="1" transform="rotate(25 85 35)"/>
-
-                        <path d="M 25 120 L 35 75 L 65 75 L 75 120 Z" fill="#b0c4de" />
-                        <path d="M 46 75 L 54 75 L 40 105 L 35 100 Z" fill="#d94838" />
-                        <path d="M 45 75 L 55 75 L 50 82 Z" fill="#b33629" />
-
-                        <circle cx="50" cy="45" r="18" fill="#f4c2c2" />
-                        <path d="M 30 45 C 28 20 72 20 70 45 C 75 35 60 22 50 22 C 40 22 25 35 30 45 Z" fill="#2d2d2d" />
-
-                        <circle cx="42" cy="42" r="4.5" fill="white" />
-                        <circle cx="42" cy="42" r="1.5" fill="black" />
-                        <circle cx="58" cy="42" r="4.5" fill="white" />
-                        <circle cx="58" cy="42" r="1.5" fill="black" />
-
-                        <line x1="38" y1="36" x2="46" y2="38" stroke="#2d2d2d" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="62" y1="36" x2="54" y2="38" stroke="#2d2d2d" stroke-width="2" stroke-linecap="round"/>
-
-                        <ellipse cx="50" cy="54" rx="5" ry="7" fill="#800000" />
-                        <path d="M 45.5 52 Q 50 49 54.5 52 Z" fill="white" />
-
-                        <path d="M 37 80 L 15 55 L 20 48 L 40 70 Z" fill="#b0c4de" />
-                        <path d="M 63 80 L 85 55 L 80 48 L 60 70 Z" fill="#b0c4de" />
-
-                        <circle cx="18" cy="50" r="6" fill="#f4c2c2" />
-                        <circle cx="82" cy="50" r="6" fill="#f4c2c2" />
-
-                        <path d="M 66 32 Q 70 39 66 42 Q 62 39 66 32 Z" fill="#87ceeb" opacity="0.9" />
-                    </g>
-                </svg>
-            </div>
-
-            <div class="excel-icon"></div>
-            <div class="falling-cells"></div>
         </div>
 
         <div class="solution-wrapper">
@@ -787,22 +501,6 @@
             </div>
 
             <div class="bottom-section">
-                <svg class="paper-city" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <rect x="10" y="40" width="30" height="60" fill="rgba(0,0,0,0.2)" transform="translate(3,3)"/>
-                    <rect x="45" y="20" width="35" height="80" fill="rgba(0,0,0,0.2)" transform="translate(3,3)"/>
-                    <rect x="10" y="40" width="30" height="60" fill="#3d8ec9"/>
-                    <rect x="45" y="20" width="35" height="80" fill="#1a6ba8"/>
-                    <rect x="15" y="45" width="5" height="5" fill="#b8e0ff"/>
-                    <rect x="25" y="45" width="5" height="5" fill="#b8e0ff"/>
-                    <rect x="15" y="55" width="5" height="5" fill="#b8e0ff"/>
-                    <rect x="25" y="55" width="5" height="5" fill="#b8e0ff"/>
-                    <rect x="52" y="28" width="6" height="6" fill="#b8e0ff"/>
-                    <rect x="65" y="28" width="6" height="6" fill="#b8e0ff"/>
-                    <rect x="52" y="40" width="6" height="6" fill="#b8e0ff"/>
-                    <rect x="65" y="40" width="6" height="6" fill="#b8e0ff"/>
-                    <polyline points="45,20 45,5 85,5" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <line x1="80" y1="5" x2="80" y2="15" stroke="#2c3e50" stroke-width="1.5"/>
-                </svg>
                 <div class="solution-text">
                     <span class="solution-lead">Intelisis:</span>
                     el ERP para la<br>tecnolog<span class="highlight-ia">IA</span> de negocio.
