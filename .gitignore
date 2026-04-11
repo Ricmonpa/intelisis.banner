@@ -6,6 +6,9 @@ Thumbs.db
 # Material de campaña / referencia (pesado: vídeos, zips, JPG masivos) — solo en local
 assets/MATERIALES/
 
+# Copia local con nombre original Kling (en remoto usamos banner-bg-cinematic.mp4)
+assets/kling_*.mp4
+
 # Metadatos al comprimir carpetas en Mac
 **/__MACOSX/
 

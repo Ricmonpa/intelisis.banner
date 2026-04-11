@@ -6,10 +6,14 @@ Banner animado HTML/CSS para campaña **Intelisis ERP 7000** (estilo papercraft,
 
 | Archivo | Uso |
 |--------|-----|
-| `index.html` | Banner + controles de demo (pausa, velocidad). |
-| `index.html?embed=1` | Solo el lienzo 300×600 (para iframes). |
+| `index.html` | Banner **V1** (fondo estático / editorial) + controles. |
+| `index.html?embed=1` | V1 solo lienzo 300×600 (iframes). |
+| `index-video.html` | Banner **V2** con **vídeo cinematográfico** de fondo (`assets/banner-bg-cinematic.mp4`). |
+| `index-video.html?embed=1` | V2 solo lienzo (iframes). |
 | `presentacion-mkt.html` | Guía / presentación para marketing. |
 | `brand-assets.css` | Exo 2 local + referencia a rutas de marca. |
+| `banner-video.css` | Solo V2: capas sobre el vídeo de fondo. |
+| `assets/banner-bg-cinematic.mp4` | V2: loop de fondo (copia estable del clip Kling). |
 | `assets/Aplicativos_Logotipo/.../Logotipo_Intelisis_blanco.png` | Logo oficial en el panel azul del banner. |
 | `assets/Exo 2/` | Familia tipográfica Exo 2 (`.ttf`). |
 

@@ -10,9 +10,10 @@
             }
         })();
     </script>
-    <title>Banner Intelisis - 300x600 Animado</title>
+    <title>Banner Intelisis V2 — Fondo cinematográfico (300×600)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="brand-assets.css">
+    <link rel="stylesheet" href="banner-video.css">
     <style>
         :root {
             /* Línea editorial Intelisis (MATERIALES / ebooks feb 2026 / Potencial 2026) */
@@ -671,7 +672,11 @@
 </head>
 <body>
 
-    <div class="banner-container" id="intelisis-banner">
+    <div class="banner-container banner-container--video" id="intelisis-banner">
+        <video class="banner-video-bg" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+            <source src="assets/banner-bg-cinematic.mp4" type="video/mp4">
+        </video>
+        <div class="banner-video-scrim" aria-hidden="true"></div>
         <div class="top-section">
             <h1 class="title-main">¿Tu empresa<br>sigue en Excel?</h1>
             <div class="subtitle-box">
@@ -817,7 +822,7 @@
 
     <div class="demo-chrome">
     <p style="margin:0 0 8px;font-family:'Exo 2',system-ui,sans-serif;font-size:12px;color:#64748b;">
-        <a href="index-video.html" style="color:#009CFF;font-weight:600;">Versión V2</a> (fondo vídeo cinematográfico)
+        <a href="index.html" style="color:#009CFF;font-weight:600;">Versión V1</a> (sin vídeo) · esta página es la V2 con fondo cinematográfico
     </p>
     <div class="demo-controls" aria-label="Controles de demo del banner">
         <button type="button" id="btn-toggle" title="Pausar o reanudar">Pausa</button>
@@ -836,6 +841,14 @@
             const btnRestart = document.getElementById('btn-restart');
             const speedBtns = document.querySelectorAll('.speed-btn');
             const isEmbed = document.documentElement.classList.contains('embed-demo');
+            const bgVideo = document.querySelector('.banner-video-bg');
+
+            function syncVideoPlayback() {
+                if (!bgVideo) return;
+                try {
+                    bgVideo.playbackRate = currentRate;
+                } catch (e) { /* ignore */ }
+            }
 
             function getAnimations() {
                 const out = [];
@@ -855,6 +868,7 @@
                 getAnimations().forEach(function (a) {
                     a.playbackRate = rate;
                 });
+                syncVideoPlayback();
             }
 
             function syncToggleLabel() {
@@ -874,6 +888,13 @@
                         a.play();
                     }
                 });
+                if (bgVideo) {
+                    if (anyRunning) bgVideo.pause();
+                    else {
+                        bgVideo.playbackRate = currentRate;
+                        bgVideo.play().catch(function () {});
+                    }
+                }
                 syncToggleLabel();
             });
 
@@ -886,6 +907,12 @@
                     a.play();
                     if (wasPaused) a.pause();
                 });
+                if (bgVideo) {
+                    bgVideo.currentTime = 0;
+                    bgVideo.playbackRate = currentRate;
+                    if (wasPaused) bgVideo.pause();
+                    else bgVideo.play().catch(function () {});
+                }
                 syncToggleLabel();
             });
 
@@ -903,6 +930,7 @@
 
             requestAnimationFrame(function () {
                 applyPlaybackRate(1);
+                if (bgVideo) bgVideo.play().catch(function () {});
                 syncToggleLabel();
             });
         })();
