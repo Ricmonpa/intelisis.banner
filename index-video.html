@@ -145,7 +145,6 @@
             height: 400px;
             z-index: 5;
             transform: translateY(450px);
-            animation: slideUp 8s infinite both;
         }
 
         .wave-container {
@@ -210,8 +209,6 @@
             margin-bottom: 18px;
             padding: 0 16px;
             text-shadow: 0 1px 3px rgba(0, 30, 60, 0.35);
-            opacity: 0;
-            animation: fadeInText 8s infinite both;
         }
 
         .solution-text .solution-lead {
@@ -231,7 +228,6 @@
             font-weight: 800;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             transform: rotate(1deg);
-            animation: pulseIA 8s infinite both;
         }
 
         .cta-button {
@@ -247,8 +243,6 @@
             cursor: pointer;
             border: 2px solid var(--intelisis-orange-cta-border);
             margin-bottom: 22px;
-            opacity: 0;
-            animation: popInCTA 8s infinite both;
         }
 
         .logo-container {
@@ -257,8 +251,6 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            opacity: 0;
-            animation: fadeInLogo 8s infinite both;
             padding: 0 12px;
             max-width: 100%;
         }
@@ -354,130 +346,6 @@
             }
         }
 
-        @keyframes slideUp {
-            0%, 100% {
-                transform: translateY(450px);
-                animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-            }
-            28% {
-                transform: translateY(450px);
-                animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-            }
-            40% {
-                transform: translateY(-14px);
-                animation-timing-function: cubic-bezier(0.34, 1.25, 0.64, 1);
-            }
-            48% {
-                transform: translateY(0);
-                animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-            }
-            88% {
-                transform: translateY(0);
-                animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
-            }
-            99.5% {
-                transform: translateY(450px);
-                animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
-            }
-        }
-
-        @keyframes fadeInText {
-            0%, 100% {
-                opacity: 0;
-                transform: translateY(12px);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            46% {
-                opacity: 0;
-                transform: translateY(12px);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            52% {
-                opacity: 1;
-                transform: translateY(0);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            88% {
-                opacity: 1;
-                transform: translateY(0);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            99% {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-        }
-
-        @keyframes popInCTA {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0.82);
-                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            54% {
-                opacity: 0;
-                transform: scale(0.82);
-                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.04);
-                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            64% {
-                opacity: 1;
-                transform: scale(1);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            88% {
-                opacity: 1;
-                transform: scale(1);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            99% {
-                opacity: 0;
-                transform: scale(0.92);
-            }
-        }
-
-        @keyframes fadeInLogo {
-            0%, 100% { opacity: 0; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-            64% { opacity: 0; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-            72% { opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-            88% { opacity: 1; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-            99% { opacity: 0; }
-        }
-
-        @keyframes pulseIA {
-            0%, 100% {
-                transform: scale(1) rotate(1deg);
-                background-color: var(--intelisis-orange-cta);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            52% {
-                transform: scale(1) rotate(1deg);
-                background-color: var(--intelisis-orange-cta);
-                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            58% {
-                transform: scale(1.06) rotate(0deg);
-                background-color: var(--intelisis-orange-bright);
-                animation-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
-            }
-            66% {
-                transform: scale(1) rotate(1deg);
-                background-color: var(--intelisis-orange-cta);
-                animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            88% {
-                transform: scale(1) rotate(1deg);
-                background-color: var(--intelisis-orange-cta);
-            }
-            99% {
-                transform: scale(1) rotate(1deg);
-                background-color: var(--intelisis-orange-cta);
-            }
-        }
     </style>
 </head>
 <body>
