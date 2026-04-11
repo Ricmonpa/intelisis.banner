@@ -58,3 +58,69 @@
     background: rgba(255, 255, 255, 0.94);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
+/* V2 elegante: sin panel azul gigante ni olas — el vídeo sigue visible; solo franja inferior legible */
+.banner-container--video .wave-container {
+    display: none !important;
+}
+
+.banner-container--video .solution-wrapper {
+    height: 236px;
+    transform: translateY(100%);
+    animation: slideUpVideoBar 8s infinite both;
+}
+
+.banner-container--video .solution-text {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.banner-container--video .solution-text .solution-lead {
+    font-size: 17px;
+}
+
+.banner-container--video .cta-button {
+    margin-bottom: 12px;
+    padding: 10px 18px;
+    font-size: 12px;
+}
+
+.banner-container--video .bottom-section {
+    top: 0;
+    height: 100%;
+    padding-top: 24px;
+    background: linear-gradient(
+        to top,
+        rgba(4, 20, 42, 0.88) 0%,
+        rgba(4, 20, 42, 0.45) 50%,
+        rgba(4, 20, 42, 0) 100%
+    );
+}
+
+@keyframes slideUpVideoBar {
+    0%,
+    100% {
+        transform: translateY(100%);
+        animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    28% {
+        transform: translateY(100%);
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    40% {
+        transform: translateY(-8px);
+        animation-timing-function: cubic-bezier(0.34, 1.25, 0.64, 1);
+    }
+    48% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    88% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+    }
+    99.5% {
+        transform: translateY(100%);
+        animation-timing-function: cubic-bezier(0.7, 0, 0.84, 0);
+    }
+}
