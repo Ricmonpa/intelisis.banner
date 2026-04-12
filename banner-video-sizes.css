@@ -1,0 +1,194 @@
+/**
+ * V2 — variantes de tamaño IAB (mismo MP4, object-fit: cover).
+ * Cargar después de banner-video.css
+ */
+
+/* ========== 300 × 250 ========== */
+.banner-container.banner--300x250 {
+    width: 300px;
+    height: 250px;
+}
+
+.banner-container--video.banner--300x250 .top-section {
+    padding: 10px 10px 6px;
+}
+
+.banner-container--video.banner--300x250 .title-main {
+    font-size: 15px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.banner-container--video.banner--300x250 .subtitle-box {
+    font-size: 10px;
+    padding: 5px 10px;
+    max-width: 98%;
+}
+
+.banner-container--video.banner--300x250 .solution-wrapper {
+    height: 118px;
+}
+
+.banner-container--video.banner--300x250 .bottom-section {
+    padding-top: 8px;
+    top: 0;
+}
+
+.banner-container--video.banner--300x250 .solution-text {
+    font-size: 11px;
+    margin-bottom: 6px;
+    padding: 0 8px;
+    line-height: 1.25;
+}
+
+.banner-container--video.banner--300x250 .solution-text .solution-lead {
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+.banner-container--video.banner--300x250 .cta-button {
+    padding: 5px 14px 6px;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+
+.banner-container--video.banner--300x250 .intelisis-logo-img {
+    height: 22px;
+    max-width: 160px;
+}
+
+/* ========== 728 × 90 (leaderboard) ========== */
+.banner-container.banner--728x90 {
+    width: 728px;
+    height: 90px;
+}
+
+.banner-container--video.banner--728x90 .top-section {
+    width: 200px;
+    max-width: 38%;
+    height: auto;
+    padding: 6px 8px;
+    text-align: left;
+    pointer-events: none;
+}
+
+.banner-container--video.banner--728x90 .title-main {
+    font-size: 12px;
+    line-height: 1.15;
+    margin-bottom: 4px;
+}
+
+.banner-container--video.banner--728x90 .subtitle-box {
+    font-size: 8px;
+    padding: 3px 8px;
+    display: block;
+    max-width: 100%;
+    margin: 0;
+}
+
+.banner-container--video.banner--728x90 .solution-wrapper {
+    left: auto;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: min(520px, 72%);
+    height: 100%;
+    transform: translateX(104%);
+    animation: slideUpVideo728Once 2s cubic-bezier(0.25, 0.8, 0.25, 1) both forwards;
+}
+
+.banner-container--video.banner--728x90 .bottom-section {
+    top: 0;
+    height: 100%;
+    padding: 6px 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    background: linear-gradient(
+        to left,
+        rgba(4, 20, 42, 0.92) 0%,
+        rgba(4, 20, 42, 0.55) 55%,
+        rgba(4, 20, 42, 0) 100%
+    );
+}
+
+.banner-container--video.banner--728x90 .solution-text {
+    flex: 1;
+    min-width: 0;
+    text-align: left;
+    margin-bottom: 0;
+    padding: 0 4px 0 0;
+    font-size: 10px;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.banner-container--video.banner--728x90 .solution-text .solution-lead {
+    display: inline;
+    font-size: 10px;
+    margin-right: 4px;
+}
+
+.banner-container--video.banner--728x90 .cta-button {
+    flex-shrink: 0;
+    margin-bottom: 0;
+    padding: 6px 12px 7px;
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    border-radius: 8px;
+}
+
+.banner-container--video.banner--728x90 .logo-container {
+    flex-shrink: 0;
+    padding: 0;
+}
+
+.banner-container--video.banner--728x90 .intelisis-logo-img {
+    height: 28px;
+    max-width: 120px;
+}
+
+@keyframes slideUpVideo728Once {
+    0% {
+        transform: translateX(104%);
+    }
+    10% {
+        transform: translateX(104%);
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    55% {
+        transform: translateX(-4px);
+        animation-timing-function: cubic-bezier(0.34, 1.25, 0.64, 1);
+    }
+    65%,
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Embed: iframe con medida exacta */
+html.embed-demo.embed-size-300x250 {
+    height: 250px !important;
+    overflow: hidden;
+}
+
+html.embed-demo.embed-size-300x250 body {
+    min-height: 250px !important;
+    height: 250px !important;
+    width: 300px !important;
+}
+
+html.embed-demo.embed-size-728x90 {
+    height: 90px !important;
+    overflow: hidden;
+}
+
+html.embed-demo.embed-size-728x90 body {
+    min-height: 90px !important;
+    height: 90px !important;
+    width: 728px !important;
+}

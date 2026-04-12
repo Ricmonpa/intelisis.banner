@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
         (function () {
-            if (new URLSearchParams(location.search).get('embed') === '1') {
-                document.documentElement.classList.add('embed-demo');
+            var p = new URLSearchParams(location.search);
+            if (p.get('embed') === '1') {
+                document.documentElement.classList.add('embed-demo', 'embed-size-728x90');
             }
         })();
     </script>
-    <title>Banner Intelisis V2 — Fondo cinematográfico (300×600)</title>
+    <title>Banner Intelisis V2 — Vídeo (728×90)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="brand-assets.css">
     <link rel="stylesheet" href="banner-video.css">
+    <link rel="stylesheet" href="banner-video-sizes.css">
     <style>
         :root {
             /* Línea editorial Intelisis (MATERIALES / ebooks feb 2026 / Potencial 2026) */
@@ -341,7 +343,7 @@
 </head>
 <body>
 
-    <div class="banner-container banner-container--video" id="intelisis-banner">
+    <div class="banner-container banner-container--video banner--728x90" id="intelisis-banner">
         <video class="banner-video-bg" autoplay muted loop playsinline preload="auto" aria-hidden="true">
             <source src="assets/banner-bg-cinematic.mp4" type="video/mp4">
         </video>
@@ -362,7 +364,7 @@
             <div class="bottom-section">
                 <div class="solution-text">
                     <span class="solution-lead">Intelisis ERP 7000:</span>
-                    el ERP para la<br>tecnolog<span class="highlight-ia">IA</span> de negocio.
+                    el ERP para la tecnolog<span class="highlight-ia">IA</span> de negocio.
                 </div>
 
                 <div class="cta-button">
@@ -378,9 +380,9 @@
 
     <div class="demo-chrome">
     <p style="margin:0 0 8px;font-family:'Exo 2',system-ui,sans-serif;font-size:12px;color:#64748b;max-width:728px;text-align:center;">
-        <strong>300×600</strong> ·
+        <strong>728×90</strong> ·
+        <a href="index-video.html" style="color:#009CFF;font-weight:600;">V2 300×600</a> ·
         <a href="index-video-300x250.html" style="color:#009CFF;font-weight:600;">V2 300×250</a> ·
-        <a href="index-video-728x90.html" style="color:#009CFF;font-weight:600;">V2 728×90</a> ·
         <a href="index.html" style="color:#009CFF;font-weight:600;">V1</a>
         <br><span style="font-size:11px;">Embed: <code>?embed=1</code></span>
     </p>
