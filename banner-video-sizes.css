@@ -65,6 +65,26 @@
     height: 90px;
 }
 
+/*
+ * Mismo MP4 (vertical / 300×600): en 90px de alto solo se ve una franja.
+ * Sin vídeo nuevo: encuadre + overlay más ligero + panel derecho un poco más estrecho.
+ */
+.banner-container--video.banner--728x90 .banner-video-bg {
+    object-fit: cover;
+    object-position: 42% 14%;
+}
+
+.banner-container--video.banner--728x90 .banner-video-scrim {
+    animation: none;
+    background: linear-gradient(
+        to right,
+        rgba(4, 14, 28, 0.58) 0%,
+        rgba(4, 14, 28, 0.22) 38%,
+        rgba(4, 14, 28, 0.1) 52%,
+        rgba(4, 14, 28, 0.28) 100%
+    );
+}
+
 .banner-container--video.banner--728x90 .top-section {
     width: 200px;
     max-width: 38%;
@@ -93,7 +113,7 @@
     right: 0;
     bottom: 0;
     top: 0;
-    width: min(520px, 72%);
+    width: min(468px, 64%);
     height: 100%;
     transform: translateX(104%);
     animation: slideUpVideo728Once 2s cubic-bezier(0.25, 0.8, 0.25, 1) both forwards;
@@ -110,9 +130,9 @@
     gap: 10px;
     background: linear-gradient(
         to left,
-        rgba(4, 20, 42, 0.92) 0%,
-        rgba(4, 20, 42, 0.55) 55%,
-        rgba(4, 20, 42, 0) 100%
+        rgba(4, 20, 42, 0.9) 0%,
+        rgba(4, 20, 42, 0.42) 42%,
+        rgba(4, 20, 42, 0) 78%
     );
 }
 
