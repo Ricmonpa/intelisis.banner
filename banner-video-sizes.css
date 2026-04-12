@@ -65,13 +65,10 @@
     height: 90px;
 }
 
-/*
- * Mismo MP4 (vertical / 300×600): en 90px de alto solo se ve una franja.
- * Sin vídeo nuevo: encuadre + overlay más ligero + panel derecho un poco más estrecho.
- */
+/* Vídeo nativo 728×90: encuadre centrado (cover por si el export difiere unos px). */
 .banner-container--video.banner--728x90 .banner-video-bg {
     object-fit: cover;
-    object-position: 42% 14%;
+    object-position: center center;
 }
 
 .banner-container--video.banner--728x90 .banner-video-scrim {
