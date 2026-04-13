@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ad.size" content="width=300,height=600">
+    <script type="text/javascript">var clickTag = "https://www.intelisis.com";</script>
+    <title>Intelisis — 300×600 (Google Ads HTML5)</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            height: 600px;
+            overflow: hidden;
+            background: #0a1628;
+        }
+
+        /* Clic en todo el creativo (Google Ads) */
+        .banner-tap {
+            display: block;
+            position: relative;
+            z-index: 9999;
+            width: 300px;
+            height: 600px;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .banner-tap:focus {
+            outline: none;
+        }
+
+        .bg-fondo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .scrim {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: linear-gradient(
+                180deg,
+                rgba(6, 14, 28, 0.35) 0%,
+                rgba(6, 14, 28, 0.12) 45%,
+                rgba(6, 14, 28, 0.25) 100%
+            );
+        }
+
+        /* Capas de copy (debajo del stacking del enlace; el <a> recibe el clic) */
+        .stage {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* --- Fase 1 (0–3s): papel cortado --- */
+        .fase-papel {
+            position: absolute;
+            left: 15px;
+            right: 15px;
+            top: 18%;
+            text-align: center;
+            animation: fasePapelLoop 8s infinite both;
+        }
+
+        .papel-card {
+            display: inline-block;
+            background: #fff;
+            color: #111;
+            padding: 14px 18px 16px;
+            max-width: 100%;
+            box-sizing: border-box;
+            box-shadow:
+                0 1px 0 rgba(0, 0, 0, 0.06),
+                0 8px 24px rgba(0, 0, 0, 0.18),
+                0 0 0 1px rgba(0, 0, 0, 0.04);
+            transform: rotate(-2.5deg);
+            border-radius: 3px;
+        }
+
+        .papel-linea1 {
+            margin: 0;
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            animation: linea1Entra 8s infinite both;
+        }
+
+        .papel-linea2 {
+            margin: 8px 0 0;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.25;
+            opacity: 0;
+            animation: linea2Entra 8s infinite both;
+        }
+
+        /* --- Fase 2 (3–5s): dolor --- */
+        .fase-dolor {
+            position: absolute;
+            left: 15px;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            animation: faseDolorLoop 8s infinite both;
+        }
+
+        .dolor-texto {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.35;
+            color: #fff;
+            text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.75),
+                0 0 20px rgba(0, 0, 0, 0.45);
+            letter-spacing: -0.01em;
+        }
+
+        /* --- Fase 3 (5–8s): plasta azul + logo + CTA --- */
+        .fase-marca {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 42%;
+            min-height: 220px;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 118, 196, 0) 0%,
+                rgba(0, 118, 196, 0.92) 22%,
+                #0076c4 45%,
+                #009cff 100%
+            );
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 18px 15px 20px;
+            box-sizing: border-box;
+            animation: faseMarcaLoop 8s infinite both;
+        }
+
+        .logo-placeholder {
+            width: 160px;
+            height: 40px;
+            margin-bottom: 14px;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+        }
+
+        .btn-demo {
+            display: inline-block;
+            padding: 11px 20px 12px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(180deg, #ffb020 0%, #f39200 55%, #e08600 100%);
+            border: 2px solid #c97800;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+            white-space: nowrap;
+        }
+
+        /* ========== Loop 8s (0% = 0s, 100% = 8s) ========== */
+
+        /* 8s loop → 3s = 37.5%, 5s = 62.5% */
+        @keyframes linea1Entra {
+            0%, 100% { opacity: 0; transform: translateY(8px); }
+            2%, 35% { opacity: 1; transform: translateY(0); }
+            37%, 99.9% { opacity: 0; transform: translateY(-6px); }
+        }
+
+        @keyframes linea2Entra {
+            0%, 11% { opacity: 0; transform: translateY(6px); }
+            /* +1s ≈ 12.5%: segunda línea */
+            13%, 35% { opacity: 1; transform: translateY(0); }
+            37%, 99.9% { opacity: 0; transform: translateY(-4px); }
+        }
+
+        @keyframes fasePapelLoop {
+            0%, 34% { opacity: 1; visibility: visible; }
+            35%, 37.5% { opacity: 0; visibility: visible; }
+            37.6%, 100% { opacity: 0; visibility: hidden; }
+        }
+
+        @keyframes faseDolorLoop {
+            0%, 36% { opacity: 0; visibility: hidden; transform: translateY(-48%) scale(0.98); }
+            38%, 60% { opacity: 1; visibility: visible; transform: translateY(-50%) scale(1); }
+            62%, 100% { opacity: 0; visibility: hidden; transform: translateY(-50%) scale(1); }
+        }
+
+        @keyframes faseMarcaLoop {
+            0%, 61% { opacity: 0; visibility: hidden; transform: translateY(28px); }
+            63%, 96% { opacity: 1; visibility: visible; transform: translateY(0); }
+            98%, 100% { opacity: 0; visibility: hidden; transform: translateY(16px); }
+        }
+    </style>
+</head>
+<body>
+
+    <a class="banner-tap" href="javascript:window.open(window.clickTag, '_blank');" aria-label="Intelisis — abrir sitio" title="Intelisis">
+        <img class="bg-fondo" src="assets/300x600-oficinista-2.webp" width="300" height="600" alt="" role="presentation" decoding="async" fetchpriority="high">
+
+        <div class="scrim" aria-hidden="true"></div>
+
+        <div class="stage">
+            <div class="fase-papel">
+                <div class="papel-card">
+                    <p class="papel-linea1">¡No te ahogues...</p>
+                    <p class="papel-linea2">en tus documentos!</p>
+                </div>
+            </div>
+
+            <div class="fase-dolor">
+                <p class="dolor-texto">Recupera el control de tu operación.</p>
+            </div>
+
+            <div class="fase-marca">
+                <!-- Placeholder logo (reemplazar por SVG oficial en producción) -->
+                <svg class="logo-placeholder" viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect width="160" height="40" rx="4" fill="rgba(255,255,255,0.15)"/>
+                    <text x="80" y="26" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="700">LOGO INTELISIS</text>
+                </svg>
+                <span class="btn-demo">[ Agenda tu demo ]</span>
+            </div>
+        </div>
+    </a>
+
+</body>
+</html>
