@@ -1,6 +1,7 @@
 /**
- * Intelisis banner V2 — vídeo full-bleed detrás del lienzo 300×600.
- * Usar junto a index-video.html + assets/banner-bg-cinematic.mp4
+ * Intelisis banner V2 — capa full-bleed detrás del lienzo 300×600.
+ * index-video.html: assets/300x600.webp (img .banner-video-bg).
+ * Otras variantes / demos: pueden seguir usando <video class="banner-video-bg">.
  */
 
 .banner-container--video {

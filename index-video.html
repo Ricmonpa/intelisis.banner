@@ -10,7 +10,7 @@
             }
         })();
     </script>
-    <title>Banner Intelisis V2 — Fondo cinematográfico (300×600)</title>
+    <title>Banner Intelisis V2 — 300×600 (fondo WebP, misma base que entrega Ads)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="brand-assets.css">
     <link rel="stylesheet" href="banner-video.css">
@@ -342,10 +342,7 @@
 <body>
 
     <div class="banner-container banner-container--video" id="intelisis-banner">
-        <video class="banner-video-bg" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-            <!-- Entrega: vídeo ≤150 KiB, duración &lt;30 s (loop) -->
-            <source src="assets/banner-shared-150k.mp4" type="video/mp4">
-        </video>
+        <img class="banner-video-bg" src="assets/300x600.webp" width="300" height="600" alt="" role="presentation" decoding="async" fetchpriority="high">
         <div class="banner-video-scrim" aria-hidden="true"></div>
         <div class="top-section">
             <h1 class="title-main">¿Tu empresa<br>sigue en Excel?</h1>
@@ -383,7 +380,7 @@
         <a href="index-video-300x250.html" style="color:#009CFF;font-weight:600;">V2 300×250</a> ·
         <a href="index-video-728x90.html" style="color:#009CFF;font-weight:600;">V2 728×90</a> ·
         <a href="index.html" style="color:#009CFF;font-weight:600;">V1</a>
-        <br><span style="font-size:11px;">Embed: <code>?embed=1</code></span>
+        <br><span style="font-size:11px;">Fondo <strong>WebP</strong> (misma pieza que <a href="ads-300x600.html" style="color:#009CFF;font-weight:600;">ads-300x600.html</a>) · Embed: <code>?embed=1</code></span>
     </p>
     <div class="demo-controls" aria-label="Controles de demo del banner">
         <button type="button" id="btn-toggle" title="Pausar o reanudar">Pausa</button>
@@ -402,14 +399,6 @@
             const btnRestart = document.getElementById('btn-restart');
             const speedBtns = document.querySelectorAll('.speed-btn');
             const isEmbed = document.documentElement.classList.contains('embed-demo');
-            const bgVideo = document.querySelector('.banner-video-bg');
-
-            function syncVideoPlayback() {
-                if (!bgVideo) return;
-                try {
-                    bgVideo.playbackRate = currentRate;
-                } catch (e) { /* ignore */ }
-            }
 
             function getAnimations() {
                 const out = [];
@@ -429,7 +418,6 @@
                 getAnimations().forEach(function (a) {
                     a.playbackRate = rate;
                 });
-                syncVideoPlayback();
             }
 
             function syncToggleLabel() {
@@ -449,13 +437,6 @@
                         a.play();
                     }
                 });
-                if (bgVideo) {
-                    if (anyRunning) bgVideo.pause();
-                    else {
-                        bgVideo.playbackRate = currentRate;
-                        bgVideo.play().catch(function () {});
-                    }
-                }
                 syncToggleLabel();
             });
 
@@ -468,12 +449,6 @@
                     a.play();
                     if (wasPaused) a.pause();
                 });
-                if (bgVideo) {
-                    bgVideo.currentTime = 0;
-                    bgVideo.playbackRate = currentRate;
-                    if (wasPaused) bgVideo.pause();
-                    else bgVideo.play().catch(function () {});
-                }
                 syncToggleLabel();
             });
 
@@ -491,7 +466,6 @@
 
             requestAnimationFrame(function () {
                 applyPlaybackRate(1);
-                if (bgVideo) bgVideo.play().catch(function () {});
                 syncToggleLabel();
             });
         })();
