@@ -26,19 +26,20 @@
 }
 
 .banner-container--video.banner--300x250 .solution-wrapper {
-    height: 128px;
+    /* Más altura: el bloque inferior no recorta el logo (overflow del banner) */
+    height: 142px;
 }
 
 .banner-container--video.banner--300x250 .bottom-section {
-    padding-top: 8px;
-    padding-bottom: 14px;
+    padding-top: 6px;
+    padding-bottom: 0;
     top: 0;
     box-sizing: border-box;
 }
 
 .banner-container--video.banner--300x250 .solution-text {
     font-size: 11px;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     padding: 0 8px;
     line-height: 1.25;
 }
@@ -54,11 +55,13 @@
     letter-spacing: 0.06em;
     border-radius: 8px;
     margin-top: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .banner-container--video.banner--300x250 .logo-container {
-    margin-top: 3px;
+    margin-top: 2px;
+    margin-bottom: 0;
+    padding-bottom: 14px;
 }
 
 .banner-container--video.banner--300x250 .intelisis-logo-img {
