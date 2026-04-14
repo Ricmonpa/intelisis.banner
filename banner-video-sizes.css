@@ -106,7 +106,7 @@ html.embed-demo .banner-728-scale-wrap {
     }
 }
 
-/* Vídeo nativo 728×90: encuadre centrado (cover por si el export difiere unos px). */
+/* WebP nativo 728×90: encuadre centrado (cover por si el export difiere unos px). */
 .banner-container--video.banner--728x90 .banner-video-bg {
     object-fit: cover;
     object-position: center center;
