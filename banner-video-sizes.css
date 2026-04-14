@@ -31,7 +31,9 @@
 
 .banner-container--video.banner--300x250 .bottom-section {
     padding-top: 8px;
+    padding-bottom: 14px;
     top: 0;
+    box-sizing: border-box;
 }
 
 .banner-container--video.banner--300x250 .solution-text {
