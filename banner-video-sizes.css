@@ -87,7 +87,35 @@ html.embed-demo .banner-728-scale-wrap {
     overflow: hidden;
 }
 
-@media (max-width: 752px) {
+/* Vertical (móvil portrait): tamaño real 728×90 + scroll horizontal — legible. */
+@media (max-width: 752px) and (orientation: portrait) {
+    html:not(.embed-demo) body:has(.banner-728-scale-wrap) {
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: auto;
+        padding: 12px 0 24px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    html:not(.embed-demo) .banner-728-scale-wrap {
+        width: 728px;
+        height: 90px;
+        max-width: none;
+        overflow: visible;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        flex-shrink: 0;
+    }
+
+    html:not(.embed-demo) .banner-728-scale-wrap .banner-container.banner--728x90 {
+        transform: none;
+    }
+}
+
+/* Apaisado estrecho: escala para que quepa en el ancho sin scroll. */
+@media (max-width: 752px) and (orientation: landscape) {
     html:not(.embed-demo) .banner-728-scale-wrap {
         width: calc(100vw - 24px);
         max-width: 728px;
