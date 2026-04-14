@@ -75,10 +75,25 @@
     height: 90px;
 }
 
-/* Demo: escala proporcional en móvil para no cortar el creativo; embed mantiene 728×90 fijo */
+/*
+ * Demo 728×90: encaja al ancho del viewport (cualquier móvil u orientación).
+ * min(728px, 100vw-24px) + aspect-ratio reserva la altura visual; scale = ancho/728.
+ * (Antes solo escalaba bajo 752px en landscape; pantallas anchas en horizontal cortaban.)
+ */
 html:not(.embed-demo) .banner-728-scale-wrap {
-    width: 728px;
+    width: min(728px, calc(100vw - 24px));
     max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    aspect-ratio: 728 / 90;
+    overflow: hidden;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+html:not(.embed-demo) .banner-728-scale-wrap .banner-container.banner--728x90 {
+    transform: scale(calc(min(728px, 100vw - 24px) / 728px));
+    transform-origin: top left;
 }
 
 html.embed-demo .banner-728-scale-wrap {
@@ -87,51 +102,8 @@ html.embed-demo .banner-728-scale-wrap {
     overflow: hidden;
 }
 
-/* Vertical (móvil portrait): tamaño real 728×90 + scroll horizontal — legible. */
-@media (max-width: 752px) and (orientation: portrait) {
-    html:not(.embed-demo) body:has(.banner-728-scale-wrap) {
-        align-items: flex-start;
-        justify-content: flex-start;
-        overflow-x: auto;
-        overflow-y: auto;
-        padding: 12px 0 24px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    html:not(.embed-demo) .banner-728-scale-wrap {
-        width: 728px;
-        height: 90px;
-        max-width: none;
-        overflow: visible;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        flex-shrink: 0;
-    }
-
-    html:not(.embed-demo) .banner-728-scale-wrap .banner-container.banner--728x90 {
-        transform: none;
-    }
-}
-
-/* Apaisado estrecho: escala para que quepa en el ancho sin scroll. */
-@media (max-width: 752px) and (orientation: landscape) {
-    html:not(.embed-demo) .banner-728-scale-wrap {
-        width: calc(100vw - 24px);
-        max-width: 728px;
-        height: calc(90px * (100vw - 24px) / 728px);
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    html:not(.embed-demo) .banner-728-scale-wrap .banner-container.banner--728x90 {
-        transform: scale(calc((100vw - 24px) / 728px));
-        transform-origin: top center;
-    }
+html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
+    transform: none;
 }
 
 /* WebP nativo 728×90: encuadre centrado (cover por si el export difiere unos px). */
