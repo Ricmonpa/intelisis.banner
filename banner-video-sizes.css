@@ -174,7 +174,7 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
 .banner-container--video.banner--728x90 .bottom-section {
     top: 0;
     height: 100%;
-    padding: 6px 10px;
+    padding: 6px 20px 6px 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -219,7 +219,7 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
 
 .banner-container--video.banner--728x90 .logo-container {
     flex-shrink: 0;
-    padding: 0 8px 0 0;
+    padding: 0;
     margin-left: 4px;
 }
 
