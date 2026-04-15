@@ -199,9 +199,9 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
 }
 
 .banner-container--video.banner--728x90 .solution-text .solution-lead {
-    display: inline;
+    display: block;
     font-size: 13px;
-    margin-right: 4px;
+    margin-bottom: 2px;
 }
 
 .banner-container--video.banner--728x90 .cta-button {
@@ -218,7 +218,7 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
 
 .banner-container--video.banner--728x90 .logo-container {
     flex-shrink: 0;
-    padding: 0;
+    padding: 0 8px 0 0;
     margin-left: 4px;
 }
 
