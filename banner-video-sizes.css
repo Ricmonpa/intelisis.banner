@@ -165,7 +165,7 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
     right: 0;
     bottom: 0;
     top: 0;
-    width: min(468px, 64%);
+    width: min(440px, 58%);
     height: 100%;
     transform: translateX(104%);
     animation: slideUpVideo728Once 2s cubic-bezier(0.25, 0.8, 0.25, 1) both forwards;
