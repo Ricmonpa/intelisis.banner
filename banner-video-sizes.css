@@ -139,22 +139,25 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
 .banner-container--video.banner--728x90 .top-section {
     width: auto;
     max-width: 30%;
-    height: auto;
-    padding: 8px 10px 8px 12px;
+    height: 100%;
+    padding: 0 10px 0 12px;
     text-align: left;
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .banner-container--video.banner--728x90 .title-main {
-    font-size: 11px;
+    font-size: 13px;
     line-height: 1.15;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     white-space: nowrap;
 }
 
 .banner-container--video.banner--728x90 .subtitle-box {
-    font-size: 7px;
-    padding: 3px 6px;
+    font-size: 9px;
+    padding: 3px 8px;
     display: inline-block;
     max-width: auto;
     margin: 0;
