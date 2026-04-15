@@ -9,6 +9,10 @@
     height: 250px;
 }
 
+.banner-container--video.banner--300x250 .banner-video-bg {
+    object-position: center 42%;
+}
+
 .banner-container--video.banner--300x250 .top-section {
     padding: 10px 10px 6px;
 }
