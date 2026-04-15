@@ -210,8 +210,9 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
     margin-top: 0;
     padding: 6px 12px 7px;
     font-size: 9px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     border-radius: 8px;
+    text-transform: none;
 }
 
 .banner-container--video.banner--728x90 .logo-container {
