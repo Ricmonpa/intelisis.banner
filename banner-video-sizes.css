@@ -122,7 +122,7 @@ html.embed-demo .banner-728-scale-wrap .banner-container.banner--728x90 {
 /* WebP nativo 728×90: encuadre centrado (cover por si el export difiere unos px). */
 .banner-container--video.banner--728x90 .banner-video-bg {
     object-fit: cover;
-    object-position: 75% 25%;
+    object-position: 42% 25%;
 }
 
 .banner-container--video.banner--728x90 .banner-video-scrim {
