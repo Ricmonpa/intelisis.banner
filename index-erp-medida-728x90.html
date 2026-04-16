@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelisis ERP a tu medida — 728×90</title>
+<style>
+@font-face{font-family:'Exo 2';font-style:normal;font-weight:800;font-display:swap;src:url('gdn-zips/erp-medida-728x90/exo2-800.woff2') format('woff2')}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100vh;background:#1a1f2e;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;font-family:'Exo 2',Arial,sans-serif}
+.label{color:#94a3b8;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+/* ── Scale wrap responsive ── */
+.wrap{width:min(728px,calc(100vw - 48px));aspect-ratio:728/90;overflow:hidden}
+.bc{width:728px;height:90px;position:relative;overflow:hidden;background:#0a1628;box-shadow:0 8px 40px rgba(0,0,0,.5);transform-origin:top left;transform:scale(calc(min(728px,100vw - 48px)/728px))}
+.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:0;pointer-events:none}
+.scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to right,rgba(4,14,28,.58) 0%,rgba(4,14,28,.22) 38%,rgba(4,14,28,.1) 52%,rgba(4,14,28,.28) 100%)}
+.top{width:auto;max-width:30%;height:100%;padding:0 10px 0 12px;text-align:left;position:absolute;z-index:2;pointer-events:none;display:flex;flex-direction:column;justify-content:center}
+.title{font-size:13px;font-weight:800;color:#fff;line-height:1.15;margin-bottom:5px;letter-spacing:-.03em;text-shadow:0 1px 2px rgba(0,0,0,.55),0 0 24px rgba(0,0,0,.35);white-space:nowrap;animation:titleAnim 8s infinite linear}
+@keyframes titleAnim{0%,100%{opacity:1;transform:translateY(0)}4%{opacity:.92;transform:translateY(4px)}14%,87.5%,99.99%{opacity:1;transform:translateY(0)}}
+.sub{font-size:9px;font-weight:800;padding:3px 8px;display:inline-block;margin:0;background:rgba(255,255,255,.94);color:#0076c4;border-radius:8px;letter-spacing:.02em;line-height:1.35;border:1px solid rgba(0,156,255,.35);border-left:4px solid #009CFF;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.sw{position:absolute;left:26%;right:0;bottom:0;top:0;width:auto;height:100%;z-index:5;transform:translateX(104%);animation:slideIn 2s cubic-bezier(.25,.8,.25,1) both forwards}
+@keyframes slideIn{0%,10%{transform:translateX(104%)}55%{transform:translateX(-4px)}65%,100%{transform:translateX(0)}}
+.bot{position:absolute;top:0;width:100%;height:100%;padding:6px 10px;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;gap:12px;box-sizing:border-box;background:linear-gradient(to left,rgba(4,20,42,.9) 0%,rgba(4,20,42,.42) 42%,rgba(4,20,42,0) 78%)}
+.bot .st,.bot .cta,.bot .logo{position:relative;z-index:2}
+.st{flex:1;min-width:0;text-align:left;color:#fff;font-size:11px;font-weight:800;line-height:1.25;margin-bottom:0;padding:0 6px 0 0;text-shadow:0 1px 3px rgba(0,30,60,.35);animation:txtIn 2.2s forwards both}
+.lead{display:block;font-weight:800;font-size:13px;margin-bottom:2px}
+@keyframes txtIn{0%,48%{opacity:0;transform:translateY(12px)}58%,100%{opacity:1;transform:translateY(0)}}
+.cta{flex-shrink:0;background:#FF7A00;color:#fff;font-weight:800;font-size:10px;padding:6px 12px 7px;letter-spacing:.06em;border-radius:8px;border:1px solid #E66E00;box-shadow:0 2px 10px rgba(0,0,0,.28),0 4px 16px rgba(0,0,0,.22);text-shadow:0 1px 1px rgba(0,0,0,.22);cursor:pointer;margin:0;animation:ctaIn 2.2s forwards both}
+@keyframes ctaIn{0%,52%{opacity:0;transform:scale(.82)}62%{opacity:1;transform:scale(1.05)}68%,100%{opacity:1;transform:scale(1)}}
+.logo{flex-shrink:0;padding:0;margin-left:4px;margin-right:16px;animation:logoIn 2.2s forwards both}
+.logo img{display:block;height:28px;width:auto;max-width:120px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,25,55,.25))}
+@keyframes logoIn{0%,62%{opacity:0}72%,100%{opacity:1}}
+.click{position:absolute;top:0;left:0;width:100%;height:100%;z-index:9999;cursor:pointer;background:transparent;text-decoration:none;outline:none}
+</style>
+</head>
+<body>
+<div class="label">Intelisis ERP a tu medida · 728×90 Leaderboard</div>
+<div class="wrap">
+<div class="bc">
+  <img class="bg" src="assets/ceo-728x90-v1.gif" width="728" height="90" alt="">
+  <div class="scrim"></div>
+  <div class="top">
+    <h1 class="title">Tu operación no es estándar</h1>
+    <div class="sub">Tu ERP debe adaptarse a ti.</div>
+  </div>
+  <div class="sw">
+    <div class="bot">
+      <div class="st"><span class="lead">Intelisis ERP 7000:</span>el ERP que se adapta a tu negocio.</div>
+      <div class="cta">SOLICITA INFORMACIÓN</div>
+      <div class="logo"><img src="assets/logo-intelisis-white-sm.png" width="120" height="28" alt="Intelisis"></div>
+    </div>
+  </div>
+  <a class="click" href="https://www.intelisis.com/intelisis_erp_7000" target="_blank"></a>
+</div>
+</div>
+</body>
+</html>
