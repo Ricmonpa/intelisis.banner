@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelisis ERP 7000 — Propuesta Banners HTML5</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080f1e;
+  --surface:#0d1830;
+  --surface2:#111f3a;
+  --border:#1e3358;
+  --blue:#009CFF;
+  --blue-dim:#47b4ff;
+  --orange:#FF7A00;
+  --white:#fff;
+  --muted:#7a93b8;
+  --radius:14px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Exo 2',system-ui,sans-serif;min-height:100vh}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,15,30,.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:64px;
+}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:28px;filter:brightness(0) invert(1)}
+.nav-logo span{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.03em}
+.nav-links{display:flex;gap:28px}
+.nav-links a{
+  font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .2s;
+}
+.nav-links a:hover{color:var(--white)}
+
+/* ── HERO ── */
+.hero{
+  text-align:center;padding:72px 24px 56px;
+  background:linear-gradient(180deg,rgba(0,156,255,.06) 0%,transparent 100%);
+  border-bottom:1px solid var(--border);
+}
+.hero-badge{
+  display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);background:rgba(0,156,255,.1);border:1px solid rgba(0,156,255,.25);
+  padding:5px 14px;border-radius:20px;margin-bottom:20px;
+}
+.hero h1{font-size:38px;font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:14px}
+.hero h1 span{color:var(--blue)}
+.hero p{font-size:15px;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.6}
+
+/* ── SECTIONS ── */
+.section{padding:64px 40px;border-bottom:1px solid var(--border)}
+.section:last-of-type{border-bottom:none}
+.section-header{margin-bottom:40px}
+.section-num{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.section-title{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.section-copy{font-size:13px;color:var(--muted);max-width:560px;font-style:italic;line-height:1.5}
+
+/* ── BANNER GRID ── */
+.banner-grid{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.banner-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:border-color .25s,transform .25s;
+}
+.banner-card:hover{border-color:var(--blue);transform:translateY(-3px)}
+.banner-stage{
+  background:#060d1a;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.banner-stage iframe{
+  border:none;display:block;
+  transform-origin:top left;
+}
+.banner-info{padding:16px 18px 18px;border-top:1px solid var(--border)}
+.banner-size{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:5px;
+}
+.banner-name{font-size:13px;font-weight:700;color:var(--white);margin-bottom:12px}
+.banner-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--orange);text-decoration:none;
+  padding:7px 14px;border:1px solid rgba(255,122,0,.35);border-radius:6px;
+  transition:background .2s,border-color .2s;
+}
+.banner-link:hover{background:rgba(255,122,0,.1);border-color:var(--orange)}
+.banner-link svg{width:12px;height:12px;fill:currentColor}
+
+/* ── ROW PARA 725x90 ── */
+.banner-row{display:flex;flex-direction:column;gap:32px;width:100%}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:40px 24px;
+  border-top:1px solid var(--border);
+  font-size:12px;color:var(--muted);line-height:1.8;
+}
+footer strong{color:var(--white)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="gdn-zips/300x600/logo.png" alt="Intelisis">
+    <span>Propuesta Banners HTML5</span>
+  </div>
+  <div class="nav-links">
+    <a href="#serie1">Serie 1</a>
+    <a href="#serie2">Serie 2</a>
+    <a href="#serie3">Serie 3</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Propuesta creativa · 2025</div>
+  <h1>Banners HTML5<br><span>Intelisis ERP 7000</span></h1>
+  <p>Tres series de campaña para Google Display Network. Animaciones nativas, sin plugins externos.</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SERIE 1 — Intelisis Original
+════════════════════════════════════════ -->
+<section class="section" id="serie1">
+  <div class="section-header">
+    <div class="section-num">Serie 01</div>
+    <h2 class="section-title">¿Tu empresa sigue en Excel?</h2>
+    <p class="section-copy">Copy: "Estás perdiendo control y dinero. Intelisis ERP 7000."</p>
+  </div>
+  <div class="banner-grid">
+
+    <!-- 300x600 -->
+    <div class="banner-card">
+      <div class="banner-stage" style="width:340px;height:640px">
+        <iframe src="gdn-zips/300x600/index.html" width="300" height="600" scrolling="no"></iframe>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">300 × 600 px</div>
+        <div class="banner-name">Half Page — Excel Frustración</div>
+        <a class="banner-link" href="gdn-zips/300x600/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+    <!-- ERP a la medida 300x600 -->
+    <div class="banner-card">
+      <div class="banner-stage" style="width:340px;height:640px">
+        <iframe src="gdn-zips/erp-medida-300x600/index.html" width="300" height="600" scrolling="no"></iframe>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">300 × 600 px</div>
+        <div class="banner-name">Half Page — ERP a la Medida</div>
+        <a class="banner-link" href="gdn-zips/erp-medida-300x600/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+    <!-- 300x250 -->
+    <div class="banner-card">
+      <div class="banner-stage" style="width:340px;height:290px">
+        <iframe src="gdn-zips/300x250/index.html" width="300" height="250" scrolling="no"></iframe>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">300 × 250 px</div>
+        <div class="banner-name">Medium Rectangle</div>
+        <a class="banner-link" href="gdn-zips/300x250/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERIE 2 — Mujer Oficinista
+════════════════════════════════════════ -->
+<section class="section" id="serie2">
+  <div class="section-header">
+    <div class="section-num">Serie 02</div>
+    <h2 class="section-title">Mujer Oficinista — Frustración</h2>
+    <p class="section-copy">Copy: "¿Sigues en Excel? Cámbiate a Intelisis ERP 7000 y deja de perder dinero."</p>
+  </div>
+  <div class="banner-grid">
+
+    <!-- 300x600 -->
+    <div class="banner-card">
+      <div class="banner-stage" style="width:340px;height:640px">
+        <iframe src="gdn-zips/mujer-oficinista-moitor-300x600/index.html" width="300" height="600" scrolling="no"></iframe>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">300 × 600 px</div>
+        <div class="banner-name">Half Page</div>
+        <a class="banner-link" href="gdn-zips/mujer-oficinista-moitor-300x600/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+    <!-- 725x90 — scaled -->
+    <div class="banner-card" style="flex:1;min-width:300px">
+      <div class="banner-stage" style="height:180px;overflow:hidden;position:relative">
+        <div style="transform:scale(0.72);transform-origin:top left;width:725px;height:90px;position:absolute;top:20px;left:20px">
+          <iframe src="gdn-zips/mujer-oficinista-monitor-725x90/index.html" width="725" height="90" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">725 × 90 px</div>
+        <div class="banner-name">Leaderboard</div>
+        <a class="banner-link" href="gdn-zips/mujer-oficinista-monitor-725x90/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SERIE 3 — CEO / Procesos
+════════════════════════════════════════ -->
+<section class="section" id="serie3">
+  <div class="section-header">
+    <div class="section-num">Serie 03</div>
+    <h2 class="section-title">CEO — Procesos Lentos</h2>
+    <p class="section-copy">Copy: "Procesos lentos te cuestan dinero y errores operativos constantes. Incrementa tu negocio con tecnologIA."</p>
+  </div>
+  <div class="banner-grid">
+
+    <!-- 300x600 -->
+    <div class="banner-card">
+      <div class="banner-stage" style="width:340px;height:640px">
+        <iframe src="gdn-zips/ceo-300x600/index.html" width="300" height="600" scrolling="no"></iframe>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">300 × 600 px</div>
+        <div class="banner-name">Half Page</div>
+        <a class="banner-link" href="gdn-zips/ceo-300x600/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+    <!-- 300x250 -->
+    <div class="banner-card">
+      <div class="banner-stage" style="width:340px;height:290px">
+        <iframe src="gdn-zips/ceo-300x250/index.html" width="300" height="250" scrolling="no"></iframe>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">300 × 250 px</div>
+        <div class="banner-name">Medium Rectangle</div>
+        <a class="banner-link" href="gdn-zips/ceo-300x250/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+    <!-- 725x90 — scaled -->
+    <div class="banner-card" style="flex:1;min-width:300px">
+      <div class="banner-stage" style="height:180px;overflow:hidden;position:relative">
+        <div style="transform:scale(0.72);transform-origin:top left;width:725px;height:90px;position:absolute;top:20px;left:20px">
+          <iframe src="gdn-zips/ceo-725x90/index.html" width="725" height="90" scrolling="no"></iframe>
+        </div>
+      </div>
+      <div class="banner-info">
+        <div class="banner-size">725 × 90 px</div>
+        <div class="banner-name">Leaderboard</div>
+        <a class="banner-link" href="gdn-zips/ceo-725x90/index.html" target="_blank">
+          <svg viewBox="0 0 16 16"><path d="M6 3h7v7h-2V6.4L4.7 12.7 3.3 11.3 9.6 5H6V3z"/></svg>
+          Abrir banner
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p><strong>Intelisis ERP 7000</strong> — Propuesta de Banners HTML5 · 2025</p>
+  <p>Todos los banners cumplen con las políticas de Google Display Network.</p>
+</footer>
+
+</body>
+</html>
