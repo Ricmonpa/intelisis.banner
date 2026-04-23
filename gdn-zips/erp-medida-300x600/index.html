@@ -13,8 +13,8 @@ html,body{margin:0;padding:0;width:300px;height:600px;overflow:hidden}
 body{font-family:'Exo 2',Arial,Helvetica,sans-serif;box-sizing:border-box}
 .bc{width:300px;height:600px;position:relative;overflow:hidden;background:#0a1628;border:1px solid #ccc;box-sizing:border-box}
 .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;pointer-events:none}
-.top{padding:60px 15px;text-align:center;position:absolute;width:100%;height:100%;z-index:2}
-.title{font-size:22px;font-weight:800;color:#fff;line-height:1.12;margin-bottom:14px;letter-spacing:-.03em;text-shadow:0 1px 2px rgba(0,0,0,.55),0 0 24px rgba(0,0,0,.35);animation:titleAnim 8s infinite linear}
+.top{padding:60px 15px;text-align:center;position:absolute;left:0;top:0;width:100%;height:100%;z-index:2;box-sizing:border-box}
+.title{font-size:22px;font-weight:800;color:#fff;line-height:1.12;margin-bottom:14px;letter-spacing:-.03em;text-align:center;text-shadow:0 1px 2px rgba(0,0,0,.55),0 0 24px rgba(0,0,0,.35);animation:titleAnim 8s infinite linear}
 @keyframes titleAnim{0%,100%{opacity:1;transform:translateY(0)}4%{opacity:.92;transform:translateY(4px)}14%,87.5%,99.99%{opacity:1;transform:translateY(0)}}
 .sub{max-width:94%;margin:0 auto;background:rgba(255,255,255,.94);color:#0076c4;font-size:13px;font-weight:800;padding:10px 14px;display:inline-block;border-radius:8px;letter-spacing:.02em;line-height:1.35;border:1px solid rgba(0,156,255,.35);border-top:4px solid #009CFF;box-shadow:0 4px 20px rgba(0,0,0,.2);animation:float 8s infinite cubic-bezier(.45,.05,.55,.95)}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
